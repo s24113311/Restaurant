@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laoban Orders Management</title>
+  <link rel="stylesheet" href="adminDashBoard.css">
+</head>
+<body>
+  <header>
+      <div class="header-content">
+          <div class="logo">
+              <span class="logo-icon">🥡</span>
+              LAOBAN
+              <span class="restaurant-name">老闆餐館</span>
+          </div>
+          <nav>
+              <a href="#">ORDERS</a>
+              <a href="#">MENU MGMT</a>
+              <a href="#">REPORTS</a>
+          </nav>
+          <div class="cart-icon">⚙️</div>
+      </div>
+      <div class="checkout-title">
+          Orders Management
+      </div>
+  </header>
+
+  <main class="container">
+      <div class="left-column">
+          <section class="card filter-search">
+              <h2>View & Search Orders</h2>
+              <div class="input-group">
+                  <span class="input-icon">🔍</span>
+                  <input type="text" placeholder="Search by Order ID, Name, or Date">
+              </div>
+              <div class="option-group">
+                  <button class="status-filter active" data-status="All">All (12)</button>
+                  <button class="status-filter" data-status="Pending">Pending (3)</button>
+                  <button class="status-filter" data-status="Preparing">Preparing (2)</button>
+                  <button class="status-filter" data-status="Ready">Ready (1)</button>
+              </div>
+              <div class="filter-type">
+                  Filter by: 
+                  <select>
+                      <option>Pickup</option>
+                      <option>Delivery</option>
+                  </select>
+              </div>
+          </section>
+
+          <section class="card order-list">
+              <h3>Recent Orders (Click to View Details)</h3>
+
+              <div class="order-row" data-id="LBA1004" data-status="Pending">
+                  <div class="order-info">
+                      <p class="order-id">#LBA1004</p>
+                      <p class="order-customer">Jenny Chen (Delivery)</p>
+                  </div>
+                  <span class="status-tag status-Pending">Pending</span>
+              </div>
+
+              <div class="order-row" data-id="LBA1003" data-status="Preparing">
+                  <div class="order-info">
+                      <p class="order-id">#LBA1003</p>
+                      <p class="order-customer">Michael S. (Pickup)</p>
+                  </div>
+                  <span class="status-tag status-Preparing">Preparing</span>
+              </div>
+
+              <div class="order-row" data-id="LBA1002" data-status="Ready">
+                  <div class="order-info">
+                      <p class="order-id">#LBA1002</p>
+                      <p class="order-customer">Sarah W. (Pickup)</p>
+                  </div>
+                  <span class="status-tag status-Ready">Ready for Pickup</span>
+              </div>
+          </section>
+      </div>
+
+      <div class="right-column">
+          <section class="card order-details">
+              <h2>Order #LBA1004 Details</h2>
+              <span class="status-tag status-Pending order-status-top">Pending</span>
+              
+              <h3>Customer Information</h3>
+              <div class="detail-item"><strong>Name:</strong> Jenny Chen</div>
+              <div class="detail-item"><strong>Contact:</strong> (555) 555-1234</div>
+              <div class="detail-item"><strong>Address:</strong> 45 Park Ave, NY 10016</div>
+
+              <h3>Order Items</h3>
+              <div class="item-details">
+                  <p class="item-name">2x Pork & Chive Dumplings</p>
+                  <p class="item-price">$25.98</p>
+              </div>
+              <div class="item-details">
+                  <p class="item-name">1x Hot & Sour Soup</p>
+                  <p class="item-price">$6.00</p>
+              </div>
+
+              <h3>Summary & Payment</h3>
+              <div class="summary-line">
+                  <p>Subtotal</p><p>$31.98</p>
+              </div>
+              <div class="summary-line tax">
+                  <p>Tax (8.875%)</p><p>$2.84</p>
+              </div>
+              <div class="summary-line total">
+                  <p>Grand Total</p><p>$34.82</p>
+              </div>
+              <div class="detail-item"><strong>Payment:</strong> Cash on Delivery</div>
+
+              <h3>Actions</h3>
+              <button class="action-button action-update" data-next-status="Preparing">Update Status</button>
+              <button class="action-button action-cancel">Cancel/Refund</button>
+              <button class="action-button action-print">Print Receipt/Invoice</button>
+          </section>
+      </div>
+  </main>
+
+  <footer>
+      <div class="footer-content">
+          <div class="footer-section about">...</div>
+          <div class="footer-section links">...</div>
+          <div class="footer-section follow">...</div>
+      </div>
+      <div class="copyright">
+          © 2024 Laoban Restaurant. All rights reserved. (Management Portal)
+      </div>
+  </footer>
+
+  <script src="adminDashBoard.js"></script>
+</body>
+</html>

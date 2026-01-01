@@ -1,0 +1,772 @@
+/* --- Root Variables --- */
+:root {
+--primary-red: #d94b28;
+--dark-background: #ba472d;
+--light-background: #e66c4d;
+--yellow-tag: #ffda6e;
+--green-tag: #4CAF50;
+--text-color-dark: #333;
+--text-color-light: #fff;
+--hover-color: red;
+}
+
+/*finalize background color*/
+/* --- Global / Body Styles --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0; /* Important: Removes default body margin */
+    padding: 0; /* Important: Removes default body padding */
+    background-color: white; /* Ensure body is white */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5%;
+    background-color: var(--text-color-light);
+    color: var(--text-color-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px; /* Adjust as needed */
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+    color: var(--text-color-dark);
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: var(--primary-color);
+}
+
+.cart-icon {
+    display: flex;
+    align-items: center;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.cart-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.cart-icon:hover {
+    color: var(--hover-color);
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none; /* Hide links on smaller screens for a mobile menu */
+    }
+    .navbar {
+        justify-content: space-between;
+    }
+}
+
+
+
+
+
+
+
+/* --- CSS Variables for Easy Customization --- */
+:root {
+    --alert-red: #dc3545;        /* Base red color */
+    --alert-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --alert-transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition curve */
+}
+
+/* 1. Styling for the Notification Bar */
+.submission-alert {
+    /* Positioning & Layout */
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%); /* Centering */
+    z-index: 2000;
+    
+    /* Appearance */
+    background-color: var(--alert-red);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px; 
+    box-shadow: var(--alert-shadow);
+    
+    /* Content Alignment */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap; 
+    
+    /* Transition */
+    opacity: 1;
+    transition: opacity var(--alert-transition), transform var(--alert-transition);
+}
+
+/* 2. Class to Visually Hide the Alert */
+.submission-alert.hidden {
+    opacity: 0;
+    transform: translate(-50%, 150%); /* Slide off-screen while maintaining horizontal center */
+    pointer-events: none; 
+}
+
+/* 3. Style for the Icon and Close Button */
+.alert-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.alert-close-btn {
+    all: unset; /* Reset default button appearance */
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    margin-left: 20px;
+    padding: 0 5px;
+    transition: color 0.2s ease-in-out;
+}
+
+.alert-close-btn:hover {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+/* 4. Mobile Responsiveness */
+@media (max-width: 600px) {
+    .submission-alert {
+        left: 10px;
+        right: 10px;
+        bottom: 15px;
+        width: auto;
+        transform: none; /* Reset centering for full-width layout */
+        justify-content: center;
+    }
+    
+    .submission-alert.hidden {
+        transform: translateY(150%); /* Adjusted for mobile positioning */
+    }
+}
+
+
+
+
+/*cart*/
+/* --- Global Variables --- */
+:root {
+    --primary-red: #dc3545;
+    --primary-red-dark: #c82333;
+    --light-header-bg: #f7e6e5; /* The soft pink/red from the image background */
+    --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --transition-smooth: 0.3s ease-in-out;
+}
+
+/* --- ITEM ADDED NOTIFICATION (image_9a5374.png) --- */
+.submission-alert {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 2000;
+    background-color: var(--primary-red);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px; 
+    box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap; 
+    opacity: 1;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.submission-alert.hidden {
+    opacity: 0;
+    transform: translate(-50%, 150%);
+    pointer-events: none; 
+}
+
+.alert-icon {
+    font-size: 20px;
+}
+
+.alert-close-btn {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    margin-left: 20px;
+}
+
+/* --- CART SIDEBAR STYLES (image_e7be30.png, image_7ff808.png, image_800ec8.png) --- */
+/* --- Global Variables --- */
+:root {
+    --primary-red: #dc3545;
+    --primary-red-dark: #c82333;
+    --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --transition-smooth: 0.3s ease-in-out;
+}
+
+/* --- ITEM ADDED NOTIFICATION (image_9a5374.png) --- */
+.submission-alert {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 2000;
+    background-color: var(--primary-red);
+    color: white;
+    padding: 12px 25px; /* Slightly adjusted padding */
+    border-radius: 8px; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Softer shadow */
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap; 
+    font-size: 1.05em;
+    opacity: 1;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.submission-alert.hidden {
+    opacity: 0;
+    transform: translate(-50%, 150%);
+    pointer-events: none; 
+}
+
+.alert-icon {
+    font-size: 18px;
+}
+
+.alert-close-btn {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    line-height: 1;
+    margin-left: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.alert-close-btn:hover {
+    opacity: 1;
+}
+
+/* --- CART SIDEBAR STYLES --- */
+/* --- Global Variables --- */
+:root {
+    --primary-red: #dc3545;
+    --primary-red-dark: #c82333;
+    --shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --transition-smooth: 0.3s ease-in-out;
+}
+
+/* ======================================================= */
+/* I. CONTACT FORM STYLES (image_297ff0.png) */
+/* ======================================================= */
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px; /* Added padding to match image_297ff0.png */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: border-color var(--transition-smooth);
+}
+
+.form-input:focus {
+    border-color: var(--primary-red);
+    outline: none;
+    box-shadow: 0 0 0 1px var(--primary-red);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.send-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-smooth);
+}
+
+.send-button:hover {
+    background-color: var(--primary-red-dark);
+}
+
+/* ======================================================= */
+/* II. "ITEM ADDED" NOTIFICATION (image_9a5374.png) */
+/* ======================================================= */
+.submission-alert {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 2000;
+    background-color: var(--primary-red);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap; 
+    font-size: 1.05em;
+    opacity: 1;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.submission-alert.hidden {
+    opacity: 0;
+    transform: translate(-50%, 150%);
+    pointer-events: none; 
+}
+
+.alert-icon {
+    font-size: 18px;
+}
+
+.alert-close-btn {
+    all: unset;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    line-height: 1;
+    margin-left: 20px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+/* ======================================================= */
+/* III. CART SIDEBAR (image_806fed.png & e7be30.png) */
+/* ======================================================= */
+
+/* Base Overlay and Sidebar Transition */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 900; 
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%; 
+    max-width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-out;
+}
+
+.cart-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cart-overlay.active .cart-sidebar {
+    transform: translateX(0);
+}
+
+/* Header Styling (Top Section) */
+.cart-header {
+    background-color: white; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd; 
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.cart-header h3 {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-icon-svg {
+    width: 25px;
+    height: 25px;
+    color: var(--primary-red);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #333;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+/* Content Area */
+.cart-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 20px;
+}
+
+/* Empty State (image_e7bb82.png) */
+.cart-empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-cart-svg {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+/* Item List Styling (image_806fed.png) */
+.cart-items-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: flex-start; /* Aligns to the top */
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.cart-item .item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+
+.item-details-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px; 
+}
+
+.item-name {
+    font-weight: 500;
+    font-size: 1.05em;
+    margin-bottom: 4px;
+    white-space: nowrap;
+}
+
+.item-price-current {
+    font-size: 0.95em;
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+/* Item Quantity Controls */
+.item-controls-wrapper {
+    padding-top: 5px; /* Vertical alignment with item details */
+}
+
+.item-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.qty-btn {
+    background: #f1f1f1;
+    border: none;
+    border-radius: 4px;
+    width: 20px; /* Slightly smaller button to fit better */
+    height: 20px;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    padding: 0;
+    transition: background-color 0.2s;
+}
+
+.item-qty {
+    font-weight: 500;
+    width: 15px;
+    text-align: center;
+}
+
+.item-remove-btn {
+    all: unset;
+    color: #888;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1.2em;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+/* Footer (Totals Section - image_806fed.png) */
+.cart-footer {
+    padding: 20px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    margin-top: auto;
+    position: sticky;
+    bottom: 0;
+}
+
+.subtotal-row, .taxes-row, .total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.taxes-row {
+    font-size: 0.9em;
+}
+.taxes-row .label-muted {
+    color: #888;
+}
+.taxes-row .value-muted {
+    font-style: italic;
+    color: #aaa;
+}
+
+.total-row {
+    font-weight: 700;
+    font-size: 1.2em;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+}
+
+.total-value {
+    color: var(--primary-red);
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: var(--primary-red); 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* CONTAINER FOR THE CONTROLS */
+.item-controls {
+    display: flex; /* Aligns the buttons and number in a row */
+    align-items: center; /* Vertically centers the elements */
+    border: 1px solid #ccc; /* Optional: adds a visible border around the group */
+    border-radius: 4px; /* Rounds the corners */
+    overflow: hidden; /* Keeps the items inside the border radius */
+    height: 30px; /* Defines a height for the control group */
+}
+
+/* ---------------------------------- */
+/* CSS FOR QUANTITY CONTROLS (Your Fix) */
+/* ---------------------------------- */
+
+/* Container for the control buttons and the number (Minus, Qty, Plus) */
+.item-controls {
+    display: flex; /* Aligns them horizontally */
+    align-items: center; /* Vertically centers the text and buttons */
+    /* Adjust these lines to match the gray box design in your images */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 30px; /* Standard height for the group */
+    background-color: #f7f7f7;
+    margin-right: 10px; /* Adds space between the control box and the remove 'x' button */
+}
+
+/* Styling for Plus/Minus Buttons */
+.qty-btn {
+    background-color: transparent; /* Inherits background from .item-controls */
+    border: none;
+    padding: 0 8px; /* Gives the button space to click */
+    cursor: pointer;
+    font-size: 16px;
+    height: 100%;
+    transition: background-color 0.1s;
+    line-height: 1; /* Ensures vertical centering of the symbol */
+}
+
+.qty-btn:hover:not(:disabled) {
+    background-color: #eee;
+}
+
+
+
+/* ----------------------------------------------------- */
+/* CSS to match the seamless box design (- | QTY | +) */
+/* ----------------------------------------------------- */
+
+/* 1. CONTAINER: Creates the single, rounded box outline */
+.item-controls {
+    display: flex;         /* Horizontal alignment */
+    align-items: center;   /* Vertical centering */
+    height: 30px;          
+    
+    /* Styles for the unified box */
+    border: 1px  #ddd;   
+    border-radius: 6px;      /* Slightly larger radius for a softer look */
+    overflow: hidden;        /* Keeps contents within the border-radius */
+    background-color: #f7f7f7; /* Light gray background */
+}
+
+/* 2. PLUS/MINUS BUTTONS: No visible borders, uses padding for size */
+.qty-btn {
+    background-color: transparent; /* Inherits light gray from parent */
+    border: none;
+    padding: 0 12px;       /* Increased padding makes the buttons wider */
+    cursor: pointer;
+    font-size: 16px;
+    height: 100%;
+    transition: background-color 0.1s;
+    line-height: 1;
+    color: #333; /* Ensures symbols are dark */
+}
+
+.qty-btn:hover:not(:disabled) {
+    background-color: #eee; /* Subtle highlight on hover */
+}
+
+/* 3. QUANTITY NUMBER: Seamlessly integrated with its neighbors */
+.item-qty {
+    /* CRITICAL: No borders here, allowing the parent container's border to frame it */
+    padding: 0 10px;       
+    min-width: 15px;      /* Ensures the number '1' has enough space */
+    font-size: 16px;      /* Slightly larger font for prominence */
+    font-weight: 500;
+    color: #333;          /* Dark number color */
+    
+    /* Centering and height */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white; /* Make the quantity background white, as shown in image_81d04b.png */
+}
+
+.item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* 4. REMOVE BUTTON (x): Separate from the main box */
+.item-remove-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 12px; 
+    padding: 0;
+}
+
+
+.checkout-btn {
+    /* Required to make the <a> element behave like a block button */
+    display: block; 
+    width: 100%;
+    text-align: center; /* Center the text inside the button */
+    
+    /* Styling to match your design */
+    background-color: #f44336; /* Red color matching your image */
+    color: white;              /* White text */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    
+    /* CRITICAL: Removes default link styles */
+    text-decoration: none; 
+}
+
+.checkout-btn:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+
+

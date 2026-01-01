@@ -1,0 +1,111 @@
+
+import React from "react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { Star, ArrowRight } from "lucide-react";
+import { useCart } from "@/components/cart/CartContext"; // Corrected import path
+
+export default function FeaturedDishes() {
+  const { addToCart } = useCart();
+
+  const featuredDishes = [
+    {
+      name: "Pork & Chive Dumplings",
+      description: "Hand-pleated dumplings filled with seasoned pork and fresh chives, served with our signature soy-vinegar sauce",
+      price: "$12.99",
+      image: "🥟",
+      rating: 4.9,
+      popular: true
+    },
+    {
+      name: "Beef Lo Mein",
+      description: "Fresh egg noodles wok-tossed with tender beef strips, vegetables, and our secret savory sauce",
+      price: "$15.99",
+      image: "🍜",
+      rating: 4.8,
+      popular: false
+    },
+    {
+      name: "Mapo Tofu",
+      description: "Silky tofu in a spicy Sichuan sauce with ground pork, garnished with scallions and Sichuan peppercorns",
+      price: "$13.99",
+      image: "🌶️",
+      rating: 4.7,
+      popular: true
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Customer Favorites
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Discover the dishes that keep our customers coming back for more
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          {featuredDishes.map((dish, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+            >
+              {dish.popular && (
+                <div className="bg-gradient-to-r from-red-600 to-red-700 text-white px-4 py-1 text-sm font-medium">
+                  ⭐ Most Popular
+                </div>
+              )}
+              
+              <div className="p-8">
+                <div className="text-center mb-6">
+                  <div className="text-6xl mb-4">{dish.image}</div>
+                  <div className="flex items-center justify-center mb-2">
+                    <div className="flex items-center">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          className={`w-4 h-4 ${
+                            star <= Math.floor(dish.rating)
+                              ? "text-yellow-400 fill-current"
+                              : "text-gray-300"
+                          }`}
+                        />
+                      ))}
+                    </div>
+                    <span className="ml-2 text-sm text-gray-600">({dish.rating})</span>
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{dish.name}</h3>
+                <p className="text-gray-600 mb-4 text-sm leading-relaxed">{dish.description}</p>
+                
+                <div className="flex items-center justify-between">
+                  <span className="text-2xl font-bold text-red-600">{dish.price}</span>
+                  <button 
+                    onClick={() => addToCart(dish)}
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200 text-sm font-medium"
+                  >
+                    Add to Order
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <Link
+            to={createPageUrl("Menu")}
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            View Full Menu
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

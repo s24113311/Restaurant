@@ -1,0 +1,449 @@
+:root {
+  --primary-red: #d94b28;
+  --dark-background: #ba472d;
+  --light-background: #e66c4d;
+  --yellow-tag: #ffda6e;
+  --green-tag: #4CAF50;
+  --text-color-dark: #333;
+  --text-color-light: #fff;
+  --hover-color: red;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: var(--text-color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content blocks horizontally */
+  min-height: 100vh;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 90%;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: var(--text-color-dark);
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: var(--primary-red);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  color: var(--primary-red);
+  transition: color 0.3s ease;
+}
+
+.cart-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-icon:hover {
+  color: var(--hover-color);
+}
+
+/* --- Navbar Responsive --- */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+}
+
+/* --- Checkout Header --- */
+.checkout-header {
+  background-color: var(--primary-red);
+  color: white;
+  width: 100%;
+  max-width: auto;
+  margin: 0 auto;
+  height: 30vh;
+
+  display: flex;              /* Flex container */
+  justify-content: center;    /* Center horizontally */
+  align-items: center;        /* Center vertically */
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.checkout-header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* --- Main Content Layout --- */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  width: 90%;
+  padding-bottom: 40px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 2;
+  min-width: 300px;
+}
+
+.order-summary-container {
+  flex: 1;
+  min-width: 280px;
+  height: fit-content;
+}
+
+/* --- Card Styles --- */
+.card {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  flex-grow: 1;
+}
+
+.card h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* --- Order Type Styling (Radio Buttons) --- */
+.order-type-container .option-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Hide the default radio button */
+.order-type-container .option-box input[type="radio"] {
+  display: none;
+}
+
+/* Checked states */
+.order-type-container .option-box input[type="radio"]:checked + i {
+  color: var(--primary-red);
+}
+
+.order-type-container .option-box input[type="radio"]:checked ~ div h3,
+.order-type-container .option-box input[type="radio"]:checked ~ div p {
+  color: var(--primary-red);
+}
+
+.order-type-container .option-box:has(input[type="radio"]:checked) {
+  border: 2px solid var(--primary-red);
+  background-color: #fff0ed;
+}
+
+.option-box i {
+  font-size: 1.8em;
+  color: #d94b28;
+}
+
+.option-box h3 {
+  margin: 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.option-box p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #777;
+}
+
+/* --- Your Information --- */
+.your-info-container .input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.your-info-container .input-group i {
+  color: #999;
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.your-info-container .input-group input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding: 8px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+/* --- Order Summary --- */
+.order-summary-container .item-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #eee;
+  font-size: 1.1em;
+  color: #333;
+}
+
+.order-summary-container .summary-details {
+  margin-bottom: 25px;
+}
+
+.order-summary-container .detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: #555;
+  font-size: 0.95em;
+}
+
+.order-summary-container .detail-row.total {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.proceed-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.proceed-button:hover {
+  background-color: #45a049;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    width: 95%;
+  }
+
+  .main-content {
+    flex: auto;
+    min-width: unset;
+  }
+
+  .order-summary-container {
+    flex: auto;
+    min-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
+
+  .checkout-header h1 {
+    font-size: 2em;
+  }
+
+  .card h2 {
+    font-size: 1.3em;
+  }
+
+  .option-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .option-box i {
+    margin-bottom: 5px;
+  }
+}
+
+/* --- FOOTER STYLES --- */
+.footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  padding: 60px 20px 20px;
+  font-size: 0.9em;
+  width: 100%; /* Ensures the background spans the full screen width */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-about {
+  flex: 2;
+  min-width: 250px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.footer-about p, .contact-info p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  color: var(--primary-red);
+}
+
+.footer-links, .footer-follow {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-links h3, .footer-follow h3 {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li a, .hours-list p {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: var(--primary-red);
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.2em;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-red);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES (FOOTER) --- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-about, .footer-links, .footer-follow {
+    min-width: unset;
+    width: 100%;
+  }
+  .footer-logo {
+    justify-content: center;
+  }
+  .contact-info p {
+    justify-content: center;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}

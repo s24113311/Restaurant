@@ -1,0 +1,707 @@
+:root {
+  --primary-red:  #c8102e; 
+  --dark-background: #ba472d;
+  --light-background: #e66c4d;
+  --yellow-tag: #ffda6e;
+  --green-tag: #4CAF50;
+  --text-color-dark: #333;
+  --text-color-light: #fff;
+  --hover-color: red;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: var(--text-color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content blocks horizontally */
+  min-height: 100vh;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 90%;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: var(--text-color-dark);
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: var(--primary-red);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  color: var(--primary-red);
+  transition: color 0.3s ease;
+}
+
+.cart-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-icon:hover {
+  color: var(--hover-color);
+}
+
+/* --- Navbar Responsive --- */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+}
+
+
+
+
+/* ---------------- Checkout Header ---------------- */
+.checkout-header {
+  background-color: var(--primary-red);
+  color: white;
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  height: 30vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.checkout-header h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* ---------------- Contact Container ---------------- */
+.contact-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 2rem 1rem;
+}
+
+/* Header Section */
+.contact-header-section {
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: var(--primary-red);
+  color: var(black);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-color-light);
+}
+
+.header-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-color-light);
+  margin-top: 0.5rem;
+}
+
+/* Main Content Grid */
+.main-content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .main-content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.column-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Box Content */
+.box-content {
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+}
+
+.box-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+/* Contact Information */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-icon {
+  font-size: 1.25rem;
+  color: #dc2626;
+  flex-shrink: 0;
+}
+
+.contact-label {
+  font-weight: 500;
+  color: black;
+}
+
+.contact-value {
+  color: black;
+  word-break: break-all;
+}
+
+/* Business Hours */
+.business-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hour-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hour-day {
+  color: #4b5563;
+}
+
+.hour-time {
+  color: #6b7280;
+}
+
+/* ---------------- Contact Form ---------------- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.form-input {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.form-input:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.send-button {
+  background-color: #dc2626;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #b91c1c;
+}
+
+
+/*frequesnt ask question*/
+.faq-section {
+  max-width: 2000px; /* Reduced from 800px */
+  margin: 1.5rem auto; /* Reduced margin */
+  padding: 2rem; /* Reduced from 2rem */
+  background-color: #fff;
+  border-radius: 10px; /* Slightly smaller border-radius */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Smaller shadow */
+}
+
+.faq-title {
+  text-align: center;
+  font-size: 1.5rem; /* Reduced from 2rem */
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Reduced gap */
+}
+
+.faq-item {
+  border: 1px solid var(--border-color);
+  border-radius: 6px; /* Reduced border-radius */
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Smaller hover shadow */
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem; /* Reduced padding */
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem; /* Reduced from 1.1rem */
+  color: var(--text-color);
+  transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+  background-color: #e8f0ff;
+}
+
+.faq-icon {
+  font-size: 1.5rem; /* Reduced from 2rem */
+  font-weight: 300;
+  transition: transform 0.3s ease;
+  color: var(--primary-color);
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  padding: 0 1rem; /* Reduced padding */
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+  color: #555;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px; /* Adjusted as needed for smaller content */
+  padding: 1rem; /* Reduced padding */
+}
+/* ---------------- Custom Message Box ---------------- */
+.message-box-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(55, 65, 81, 0.5);
+}
+
+.message-box-container.hidden {
+  display: none;
+}
+
+.message-box-content {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+              0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  text-align: center;
+}
+
+.message-box-text {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.message-box-subtext {
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
+.message-box-button {
+  margin-top: 1rem;
+  padding: 0.5rem 0.5rem;
+  background-color: #dc2626;
+  color: #ffffff;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+}
+
+.message-box-button:hover {
+  background-color: #b91c1c;
+}
+
+/* --- FOOTER STYLES --- */
+/* --- Footer Columns --- */
+.footer-about {
+  flex: 2; /* Takes up more space than other columns */
+  min-width: 250px;
+}
+
+.footer-links,
+.footer-follow {
+  flex: 1; /* Takes up equal space */
+  min-width: 150px;
+}
+
+/* --- Logo & Info --- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.footer-about p,
+.contact-info p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+.contact-info i {
+  margin-right: 5px;
+  margin-bottom: 0.5px;
+  color: var(--primary-red);
+  margin: 0;
+}
+
+/* --- Links & Headings --- */
+.footer-links h3,
+.footer-follow h3 {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: var(--primary-red); /* Assuming --primary-red is defined elsewhere */
+}
+
+/* --- Social Icons --- */
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.2em;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-red);
+}
+
+/* --- Bottom Section --- */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-about,
+  .footer-links,
+  .footer-follow {
+    min-width: unset;
+    width: 100%;
+    margin-bottom: 20px; /* Adds space between stacked columns */
+  }
+  .footer-logo {
+    justify-content: center;
+  }
+  /* Updated selectors for better alignment on mobile */
+  .footer-about p,
+  .contact-info p {
+    display: flex; /* Aligns text and icons horizontally */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --- Updated --- */
+body {
+ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #f0f2f5;
+ color: var(--text-color-dark);
+ min-height: 100vh;
+}
+
+/* --- New Main Content Wrapper --- */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%; /* Change to 100% to fill the screen */
+  max-width: none; /* Remove max-width to allow it to be full-width */
+  margin: 0;
+}
+
+/* ---------------- Checkout Header ---------------- */
+.checkout-header {
+  background-color: var(--primary-red);
+  color: white;
+  width: 100%; /* Change to 100% to fill the screen */
+  max-width: none; /* Remove max-width */
+  margin: 0;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* ---------------- Contact Container ---------------- */
+.contact-container {
+  max-width: 1200px; /* Set a specific max-width for the content */
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 2rem 1rem;
+}
+
+/* --- FOOTER STYLES --- */
+.footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  padding: 30px 20px;
+  font-size: 0.9em;
+  width: 100%; /* Ensures the background spans the full screen width */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px; /* Adjust this to match the contact container's max-width for visual consistency */
+  margin: 0 auto;
+  gap: 40px;
+}
+
+
+/* --- CSS Variables for Easy Customization --- */
+:root {
+    --alert-red: #dc3545;        /* Base red color */
+    --alert-red-dark: #c82333;   /* Darker red for hover/shadow */
+    --alert-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --alert-transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother transition curve */
+}
+
+/* 1. Styling for the Notification Bar */
+.submission-alert {
+    /* Positioning & Layout */
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    /* Centering: Translate by half its width, then by its current position */
+    transform: translateX(-50%); 
+    z-index: 2000;
+    
+    /* Appearance */
+    background-color: var(--alert-red);
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px; 
+    box-shadow: var(--alert-shadow);
+    
+    /* Content Alignment */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    white-space: nowrap; 
+    
+    /* Transition */
+    opacity: 1;
+    transition: opacity var(--alert-transition), transform var(--alert-transition);
+}
+
+/* 2. Class to Visually Hide the Alert (Slide Down Effect) */
+.submission-alert.hidden {
+    opacity: 0;
+    /* Slide off-screen while maintaining horizontal center */
+    transform: translate(-50%, 150%); 
+    pointer-events: none; /* Disables interaction when hidden */
+}
+
+/* 3. Style for the Icon and Message */
+.alert-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.alert-message {
+    /* Ensure text is clearly legible */
+    font-weight: 500;
+}
+
+/* 4. Style for the Close Button */
+.alert-close-btn {
+    /* Reset default button appearance */
+    all: unset; 
+    cursor: pointer;
+    
+    color: white;
+    font-size: 18px;
+    margin-left: 20px;
+    padding: 0 5px;
+    transition: color 0.2s ease-in-out;
+}
+
+.alert-close-btn:hover {
+    color: #ffd700; /* Gold color for high contrast hover */
+    transform: scale(1.1); /* Subtle visual feedback */
+}
+
+/* 5. Mobile Responsiveness: Full width bar on small screens */
+@media (max-width: 600px) {
+    .submission-alert {
+        left: 10px;
+        right: 10px;
+        bottom: 15px;
+        width: auto;
+        /* Reset centering transform for full-width layout */
+        transform: none; 
+        justify-content: space-between; /* Spread elements out slightly */
+    }
+    
+    /* Ensure the hidden state works correctly on mobile */
+    .submission-alert.hidden {
+        transform: translateY(150%);
+    }
+}

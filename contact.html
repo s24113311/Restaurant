@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laoban Checkout</title>
+
+    <link rel="stylesheet" href="contact.css" />
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+    />
+</head>
+<body class="bg-gray-200">
+
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="#" class="logo-link">
+                <img src="images/logo.png" alt="Laoban Logo" class="logo" />
+            </a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+        <div class="navbar-right">
+            <a href="#cart" class="cart-icon" aria-label="View Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
+                    <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H209.7c-34.1 0-65.3-17.2-84.6-46.6l-5.4-28.5-49.7-292.7C48.6 56.6 28.9 48 24 48H12c-13.3 0-24-10.7-24-24s10.7-24 24-24H24zM176 512c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zm320 0c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40z"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+
+     <header class="checkout-header">
+            <h1>Contact Us</h1>
+        </header>
+
+    <div class="page-content-wrapper">
+        <div class="contact-container">
+            <div class="main-content-grid">
+                <div class="column-left">
+                    <div class="box-content">
+                        <h2 class="box-title">Get in Touch</h2>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-phone-alt contact-icon"></i>
+                                <div>
+                                    <p class="contact-label">Phone</p>
+                                    <p class="contact-value">(555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope contact-icon"></i>
+                                <div>
+                                    <p class="contact-label">Email</p>
+                                    <p class="contact-value">hello@laoban.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                                <div>
+                                    <p class="contact-label">Address</p>
+                                    <p class="contact-value">
+                                        123 Chinatown Street<br>
+                                        New York, NY 10013
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box-content">
+                        <h2 class="box-title">Business Hours</h2>
+                        <div class="business-hours">
+                            <div class="hour-item">
+                                <span class="hour-day">Monday - Thursday</span>
+                                <span class="hour-time">11:00 AM - 9:00 PM</span>
+                            </div>
+                            <div class="hour-item">
+                                <span class="hour-day">Friday - Saturday</span>
+                                <span class="hour-time">11:00 AM - 10:00 PM</span>
+                            </div>
+                            <div class="hour-item">
+                                <span class="hour-day">Sunday</span>
+                                <span class="hour-time">12:00 PM - 8:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column-right">
+                    <div class="box-content">
+                        <h2 class="box-title">Send Us a Message</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div>
+                                <label for="name" class="form-label">Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Your full name" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="phone" class="form-label">Phone *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="s24113311@stu.edu.tw" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder="What can we help with you?" class="form-input">
+                            </div>
+                            <div>
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your question, special request, or feedback..." required class="form-input"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="send-button">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>Send Message</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+    <div id="submission-alert" class="submission-alert hidden">
+    <span class="alert-message">Message sent successfully!</span>
+</div>
+    
+
+            <div class="faq-section">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer vegetarian options?</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Yes! We have many vegetarian dishes including vegetable dumplings, tofu dishes, and vegetable stir-fries.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer catering options?</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Absolutely! For catering orders, please call us at least 24 hours in advance so we can prepare everything fresh.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer takeout?</h3>
+                        </div>
+                        <div class="faq-answer">
+                            <p>
+                                Yes, you can place an order for takeout by phone or through our website.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="messageBox" class="message-box-container hidden">
+            <div class="message-box-content">
+                <p class="message-box-text">Message sent successfully!</p>
+                <p class="message-box-subtext">Thank you for contacting us. We'll get back to you soon.</p>
+                <button id="closeMessage" class="message-box-button">Close</button>
+            </div>
+        </div>
+    </div> <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Laoban Footer Logo" />
+                    <h2>Laoban</h2>
+                </div>
+                <p>
+                    Experience authentic Chinese cuisine with handcrafted dumplings and traditional flavors. 
+                    Made fresh daily with the finest ingredients.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone-alt"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> hello@laoban.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Chinatown Street, New York, NY 10013</p>
+                </div>
+            </div>
+
+            
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Order Online</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-follow">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <h3>Hours</h3>
+                <div class="hours-list">
+                    <p>Mon – Thu: 11:00 AM – 9:00 PM</p>
+                    <p>Fri – Sat: 11:00 AM – 10:00 PM</p>
+                    <p>Sun: 12:00 PM – 8:00 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Laoban Restaurant. All rights reserved. | Made with care in New York's Chinatown</p>
+        </div>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html>

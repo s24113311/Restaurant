@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  
+  <!-- Your main CSS file -->
+  <link rel="stylesheet" href="home.css">
+
+  <!-- Font Awesome for icons (like your plus and arrow buttons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-left">
+        <a href="#" class="logo-link">
+            <img src="images/logo.png" alt="Laoban Logo" class="logo">
+        </a>
+    </div>
+    <ul class="navbar-links">
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="menu.html">MENU</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+    <div class="navbar-right">
+        <a href="#cart" class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor">
+                <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H209.7c-34.1 0-65.3-17.2-84.6-46.6l-5.4-28.5-49.7-292.7C48.6 56.6 28.9 48 24 48H12c-13.3 0-24-10.7-24-24s10.7-24 24-24H24zM176 512c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zm320 0c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40z"/>
+            </svg>
+        </a>
+    </div>
+</nav>
+
+<!-- slider--><!-- ===== Laoban Slider Section ===== -->
+<!-- ===== Laoban Slider Section ===== -->
+<section class="laoban-slider-section">
+  <div class="slider-container">
+    <!-- Left Arrow -->
+    <button class="slider-arrow left-arrow" aria-label="Previous Slide">&#10094;</button>
+
+    <!-- Slider Wrapper -->
+    <div class="slider-wrapper">
+      <!-- Slide 1 -->
+      <div class="slider-slide active">
+        <div class="slide-content">
+          <div class="slide-text-block">
+            <h2 class="slide-title">老伴獨家優惠</h2>
+            <p class="slide-text">招牌水餃，買五送一！</p>
+          </div>
+          <div class="slide-image">
+            <img src="images/laoban_dumplings_special.png" alt="Laoban's Special Dumplings">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slider-slide">
+        <div class="slide-content">
+          <div class="slide-text-block">
+            <h2 class="slide-title">每日新鮮手作</h2>
+            <p class="slide-text">品嚐傳統風味，感受家的溫暖。</p>
+          </div>
+          <div class="slide-image">
+            <img src="images/laoban_kitchen_fresh.png" alt="Freshly Made Dumplings">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slider-slide">
+        <div class="slide-content">
+          <div class="slide-text-block">
+            <h2 class="slide-title">新菜上市！</h2>
+            <p class="slide-text">特色麵點、精緻小菜等你來嚐！</p>
+          </div>
+          <div class="slide-image">
+            <img src="images/laoban_new_menu.png" alt="New Menu Items">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="slider-arrow right-arrow" aria-label="Next Slide">&#10095;</button>
+
+    <!-- Dots -->
+    <div class="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CSS ===== -->
+<style>
+:root {
+  --laoban-red: #c8102e;
+  --laoban-dark-red: #9b0e2a;
+  --laoban-yellow: #ffda6e;
+  --laoban-white: #fff;
+}
+
+/* === Reset & Background === */
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Poppins", sans-serif;
+  background-color: var(--page-background);
+}
+
+/* === Full-width slider === */
+.laoban-slider-section {
+  width: 100%;
+  background-color: var(--laoban-red);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* === Inner Container === */
+.slider-container {
+  width: 100%;
+  position: relative;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  width: 100%;
+}
+
+/* === Each Slide === */
+.slider-slide {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 3rem 8%;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+/* === Text + Image === */
+.slide-text-block {
+  flex: 1;
+  min-width: 260px;
+}
+
+.slide-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--laoban-yellow);
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.slide-text {
+  font-size: 1.3rem;
+  color: var(--laoban-white);
+}
+
+.slide-image img {
+  width: 340px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* === Arrows === */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: var(--laoban-yellow);
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 10;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.left-arrow { left: 20px; }
+.right-arrow { right: 20px; }
+
+/* === Dots === */
+.slider-dots {
+  text-align: center;
+  padding: 1rem 0;
+  background-color: var(--laoban-dark-red);
+}
+
+.dot {
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0 5px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot.active,
+.dot:hover {
+  background-color: var(--laoban-yellow);
+  transform: scale(1.2);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .slide-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+  .slide-image img {
+    width: 80%;
+  }
+  .slide-title {
+    font-size: 2rem;
+  }
+  .slide-text {
+    font-size: 1.1rem;
+  }
+}
+</style>
+
+<!-- ===== JS ===== -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  const slides = document.querySelectorAll('.slider-slide');
+  const dots = document.querySelectorAll('.dot');
+  const leftArrow = document.querySelector('.left-arrow');
+  const rightArrow = document.querySelector('.right-arrow');
+  let currentSlide = 0;
+
+  const updateSlider = (index) => {
+    sliderWrapper.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  };
+
+  const nextSlide = () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateSlider(currentSlide);
+  };
+
+  const prevSlide = () => {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateSlider(currentSlide);
+  };
+
+  rightArrow.addEventListener('click', nextSlide);
+  leftArrow.addEventListener('click', prevSlide);
+  dots.forEach((dot, i) => dot.addEventListener('click', () => {
+    currentSlide = i;
+    updateSlider(currentSlide);
+  }));
+
+  // Auto play
+  let timer = setInterval(nextSlide, 5000);
+  const stop = () => clearInterval(timer);
+  const start = () => timer = setInterval(nextSlide, 5000);
+
+  sliderWrapper.addEventListener('mouseenter', stop);
+  sliderWrapper.addEventListener('mouseleave', start);
+});
+</script>
+
+
+
+
+
+
+<!-- ===== news== -->
+<section class="media-section">
+    <div class="container">
+        
+        <div class="video-column">
+            <h2 class="section-title">VIDEO COMMERCIAL</h2>
+      
+    
+    <div class="video-player-wrapper">
+        <iframe 
+            class="video-iframe" 
+            src="https://www.youtube.com/embed/slUhVTAznMo?si=-DlDFqHuHIzL36-w"
+            title="YouTube video player"
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+        ></iframe>
+        
+        <div class="video-overlay" onclick="playVideo(this)">
+            <img 
+                src="https://www.youtube.com/embed/slUhVTAznMo?si=-DlDFqHuHIzL36-w"
+                alt="Laoban Commercial Placeholder" 
+                class="video-placeholder">
+            <div class="play-button">▶</div>
+        </div>
+    </div>
+</div>
+
+            
+        <div class="news-column">
+            <h2 class="section-title">NEWS AND ARTICLE <a href="#" class="see-more">See more</a></h2>
+            
+            <div class="article-list">
+                
+                <a href="#" class="article-item">
+                    <div class="article-thumbnail">
+                        <img src="images/article_1_thumb.jpg" alt="Article 1 Thumbnail">
+                    </div>
+                    <p class="article-title">老伴品牌榮獲「年度最佳餃子」大獎</p>
+                </a>
+                
+                <a href="#" class="article-item">
+                    <div class="article-thumbnail">
+                        <img src="images/article_2_thumb.jpg" alt="Article 2 Thumbnail">
+                    </div>
+                    <p class="article-title">獨家專訪：老伴分享傳承三代的手藝秘訣</p>
+                </a>
+                
+                <a href="#" class="article-item">
+                    <div class="article-thumbnail">
+                        <img src="images/article_3_thumb.jpg" alt="Article 3 Thumbnail">
+                    </div>
+                    <p class="article-title">春節限定！老伴推出「元寶水餃禮盒」</p>
+                </a>
+                
+                <a href="#" class="article-item">
+                    <div class="article-thumbnail">
+                        <img src="images/article_4_thumb.jpg" alt="Article 4 Thumbnail">
+                    </div>
+                    <p class="article-title">探索老伴：從唐人街小攤到國際美食指南</p>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+:root {
+    --laoban-black: #333;
+    --laoban-gray-light: #f5f5f5;
+    --laoban-red-text: #C8102E; /* Use for highlight/See more */
+    --laoban-border: #eee;
+}
+
+.media-section {
+    padding: 60px 0;
+    background-color: var(--laoban-gray-light);
+}
+
+.media-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--laoban-black);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.see-more {
+    font-size: 0.9rem;
+    color: var(--laoban-red-text);
+    text-decoration: none;
+    font-weight: normal;
+}
+
+/* === 1. Video Commercial Column === */
+
+/* === 1. Video Commercial Column === */
+.video-column {
+    flex: 1;
+    min-width: 50%;
+}
+
+.video-player-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-iframe, 
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.video-overlay:hover {
+    opacity: 0.8;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+/* NOTE: All other styles for the section remain the same. */
+
+.news-column {
+    flex: 1;
+    min-width: 50%;
+}
+
+.article-list {
+    display: flex;
+    flex-direction: column;
+    /* FIX: Reduced gap for tighter list */
+    gap: 10px;
+}
+
+.article-item {
+    display: flex;
+    align-items: center;
+    /* FIX: Adjusted padding for cleaner look */
+    padding: 15px 0 15px 15px; 
+    /* FIX: Removed external border */
+    border: none; 
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--laoban-black);
+    background-color: white;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.article-item:hover {
+    background-color: var(--laoban-gray-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.article-thumbnail {
+    flex-shrink: 0;
+    width: 80px;
+    height: 60px;
+    /* FIX: Adjusted margin */
+    margin-right: 10px; 
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.article-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-title {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    margin: 0;
+    flex-grow: 1;
+    /* FIX: Adjusted padding */
+    padding-right: 15px; 
+}
+
+
+/* === Mobile Responsiveness === */
+
+@media (max-width: 768px) {
+    .media-section .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .video-column, .news-column {
+        min-width: 100%;
+    }
+}
+
+</style>
+
+
+<script>
+
+/**
+ * Function to start video playback when the overlay is clicked.
+ * It hides the overlay and activates autoplay/full video mode.
+ */
+function playVideo(overlayElement) {
+    const wrapper = overlayElement.parentNode;
+    const iframe = wrapper.querySelector('.video-iframe');
+
+    // 1. Hide the overlay
+    overlayElement.style.display = 'none';
+
+    // 2. Modify the iframe source to enable autoplay
+    let src = iframe.src;
+
+    if (src.indexOf('?') > -1) {
+        src += '&autoplay=1';
+    } else {
+        src += '?autoplay=1';
+    }
+    
+    // 3. Update the iframe source to reload and start playing
+    iframe.src = src;
+
+    console.log("Video started playing.");
+}
+
+</script>
+
+
+
+
+
+
+
+<div id="cart-overlay" class="cart-overlay">
+    <div id="cart-sidebar" class="cart-sidebar">
+        
+        <div class="cart-header">
+            <h3>
+                <svg class="cart-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H209.7c-34.1 0-65.3-17.2-84.6-46.6l-5.4-28.5-49.7-292.7C48.6 56.6 28.9 48 24 48H12c-13.3 0-24-10.7-24-24s10.7-24 24-24H24zM176 512c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zm320 0c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40z"/></svg> 
+                Your Order
+            </h3>
+            <button id="close-cart-btn" class="close-btn" aria-label="Close Cart">&times;</button>
+        </div>
+
+        <div id="cart-content" class="cart-content">
+            <div id="cart-empty-state" class="cart-empty-state hidden">
+                <svg class="empty-cart-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="#ccc"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H209.7c-34.1 0-65.3-17.2-84.6-46.6l-5.4-28.5-49.7-292.7C48.6 56.6 28.9 48 24 48H12c-13.3 0-24-10.7-24-24s10.7-24 24-24H24zM176 512c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zm320 0c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40z"/></svg>
+                <p class="empty-message">Your cart is empty</p>
+                <p class="empty-subtitle">Looks like you haven't added anything to your order yet.</p>
+            </div>
+
+            <ul id="cart-items-list" class="cart-items-list">
+                <li class="cart-item" data-index="0">
+                    <img src="images/chiken.png" alt="Dumplings" class="item-img">
+                    <div class="item-details-main">
+                        <span class="item-name">Pork & Chive Dumplings</span>
+                        <span class="item-price-current">$3.99</span>
+                    </div>
+                    <div class="item-controls-wrapper">
+                        <div class="item-controls">
+                            <button class="qty-btn decrement-btn" data-action="decrement">-</button>
+                            <span class="item-qty">3</span>
+                            <button class="qty-btn increment-btn" data-action="increment">+</button>
+                            <button class="item-remove-btn" data-action="remove">&times;</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="cart-footer" class="cart-footer">
+    <div class="subtotal-row">
+        <span class="label">Subtotal</span>
+        <span id="subtotal-price" class="value">$12.99</span>
+    </div>
+    <div class="taxes-row">
+        <span class="label">Taxes (8.875%)</span> 
+        <span id="taxes-price-sidebar" class="value">$1.15</span> 
+    </div>
+    <div class="total-row">
+        <span class="label">Total</span>
+        <span id="total-price" class="value total-value">$14.14</span>
+    </div>
+    <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+</div>
+        </div>
+    </div>
+</div>
+
+<div id="item-added-alert" class="submission-alert hidden">
+    <span class="alert-icon">✅</span>
+    <span class="alert-message">Added "Pork & Chive Dumplings"! Total items: 1</span> 
+    <button class="alert-close-btn" onclick="hideItemAlert()">&times;</button>
+</div>
+
+
+    <!-- VIBRANT FOOD PROMO & RANKING SECTION -->
+    <div class="kfc-section-wrapper">
+
+        <div class="horizontal-scroll-container">
+
+            <!-- 1. LEFT PROMO BLOCK (Static, Red Background) -->
+            <div class="promo-block">
+                <div class="promo-title">Boss's Daily Mega Deal</div>
+                <div class="featured-cards">
+                    
+                    <!-- Featured Card #1 -->
+                    <div class="food-card featured-card">
+                        <span class="card-rank">#1</span>
+                        <div class="featured-card-content">
+                            <h3 class="item-name">One Piece Devil Fruit Burger </h3>
+                            <p class="item-desc">A limited-edition fiery burger.</p>
+                            <span class="price">$224</span>
+                        </div>
+                        <!-- PLUS BUTTON HERE (Should be visible) -->
+                        <button class="add-to-order-btn" data-item-name="Devil Fruit Burger" data-item-price="224"><i class="fas fa-plus"></i></button>
+                    </div>
+
+                    <!-- Featured Card #2 -->
+                    <div class="food-card featured-card new-item">
+                        <span class="card-rank">#2</span>
+                        <div class="featured-card-content">
+                            <h3 class="item-name new-label"><span class="new-badge">NEW</span><br>Creamy Egg Tarts Gift Box </h3>
+                            <p class="item-desc">Rich custard, flakey pastry.</p>
+                            <span class="price">$295</span>
+                        </div>
+                        <!-- PLUS BUTTON HERE (Should be visible) -->
+                        <button class="add-to-order-btn" data-item-name="Egg Tarts Box" data-item-price="295"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="promo-discount-text">5折</div> 
+            </div>
+
+            <!-- 2. RANKING BLOCK (Horizontal Slider) -->
+            <div class="ranking-block">
+                <h2 class="section-title">POPULARITY RANKING</h2>
+                
+                <div class="cards-scroll-wrapper" id="ranking-scroll">
+                    <!-- The cards are laid out horizontally inside the inner slider -->
+                    <div class="cards-inner-slider" id="cards-inner-slider">
+                        
+                        <!-- Scrollable Card #3 -->
+                        <div class="food-card scroll-card">
+                            <span class="card-rank-small">#3</span>
+                            <img src="https://placehold.co/100x70/FF7F50/FFFFFF?text=Crispy+Chicken" onerror="this.src='https://placehold.co/100x70/FF7F50/FFFFFF?text=Chicken'" alt="KFC Item 3">
+                            <h3 class="item-name">5-piece Original Recipe Bucket</h3>
+                            <div class="card-footer"> 
+                                <span class="price">$299</span>
+                                <!-- PLUS BUTTON HERE (Should be visible) -->
+                                <button class="add-to-order-btn" data-item-name="5pc Bucket" data-item-price="299"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Scrollable Card #4 -->
+                        <div class="food-card scroll-card">
+                            <span class="card-rank-small">#4</span>
+                            <img src="https://placehold.co/100x70/FFD700/8B4513?text=Family+Meal" onerror="this.src='https://placehold.co/100x70/FFD700/8B4513?text=Family'" alt="KFC Item 4">
+                            <h3 class="item-name">The Big Boss Family Bucket</h3>
+                            <div class="card-footer"> 
+                                <span class="price">$299</span>
+                                <button class="add-to-order-btn" data-item-name="Family Bucket" data-item-price="299"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Scrollable Card #5 -->
+                        <div class="food-card scroll-card">
+                            <span class="card-rank-small">#5</span>
+                            <img src="https://placehold.co/100x70/6495ED/FFFFFF?text=Fries" onerror="this.src='https://placehold.co/100x70/6495ED/FFFFFF?text=Fries'" alt="KFC Item 5">
+                            <h3 class="item-name">Large Golden Sweet Potato Fries</h3>
+                            <div class="card-footer"> 
+                                <span class="price">$65</span>
+                                <button class="add-to-order-btn" data-item-name="Large Fries" data-item-price="65"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Scrollable Card #6 -->
+                        <div class="food-card scroll-card">
+                            <span class="card-rank-small">#6</span>
+                            <img src="https://placehold.co/100x70/98FB98/006400?text=Salad" onerror="this.src='https://placehold.co/100x70/98FB98/006400?text=Cola'" alt="KFC Item 6">
+                            <h3 class="item-name">Fresh Garden Green Salad</h3>
+                            <div class="card-footer"> 
+                                <span class="price">$50</span>
+                                <button class="add-to-order-btn" data-item-name="Salad" data-item-price="50"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Cards for Scrolling Demo -->
+                        <div class="food-card scroll-card">
+                            <span class="card-rank-small">#7</span>
+                            <img src="https://placehold.co/100x70/F08080/FFFFFF?text=Sundae" alt="KFC Item 7">
+                            <h3 class="item-name">Ice Cream Waffle Sundae</h3>
+                            <div class="card-footer"> 
+                                <span class="price">$70</span>
+                                <button class="add-to-order-btn" data-item-name="Sundae" data-item-price="70"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="food-card scroll-card">
+                            <span class="card-rank-small">#8</span>
+                            <img src="https://placehold.co/100x70/ADD8E6/000000?text=Coffee" alt="KFC Item 8">
+                            <h3 class="item-name">Freshly Brewed Coffee</h3>
+                            <div class="card-footer"> 
+                                <span class="price">$45</span>
+                                <button class="add-to-order-btn" data-item-name="Coffee" data-item-price="45"><i class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!-- Manual Slider Controls (Should be visible) -->
+                <button class="scroll-arrow left" id="scroll-left-btn"><i class="fas fa-angle-left"></i></button>
+                <button class="scroll-arrow right" id="scroll-right-btn"><i class="fas fa-angle-right"></i></button>
+            </div>
+            
+        </div>
+    </div>
+
+<style>
+/* ========================= GENERAL STYLES ========================= */
+:root {
+ /* Generalized Colors for a vibrant brand look */
+ --primary-accent: #D2143B; /* Slightly deeper red */
+--secondary-accent: #FFD700; /* Gold/Yellow for highlights */
+ --dark-text: #222;
+ --light-bg: #F0F0F0; /* Slightly darker light background */
+ --kfc-white: #FFFFFF;
+ --font-family: 'Inter', sans-serif;
+}
+
+body {
+ margin: 0;
+font-family: var(--font-family);
+ background-color: var(--kfc-white);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes pulseRed {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    50% {
+        transform: scale(1.05);
+        filter: brightness(1.2);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+@keyframes redGlowPulse {
+    0% { 
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0, 0, 0, 0.5); 
+    }
+    50% { 
+        text-shadow: 0 0 10px var(--kfc-white), 0 0 20px var(--primary-accent), 0 0 30px rgba(0, 0, 0, 0.8);
+        transform: scale(1.05);
+    }
+    100% { 
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0, 0, 0, 0.5);
+        transform: scale(1);
+    }
+}
+
+/* --- MAIN LAYOUT CONTAINER --- */
+.kfc-section-wrapper {
+ max-width: 1200px;
+margin: 40px auto;
+ overflow: hidden;
+ border-radius: 12px;
+    background-color: var(--light-bg);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.horizontal-scroll-container {
+    display: flex;
+    width: 100%;
+    min-height: 480px;
+}
+
+/* 1. LEFT PROMO BLOCK (Static Red) */
+.promo-block {
+    flex-shrink: 0;
+    width: 40%; 
+    background: radial-gradient(circle at top right, var(--primary-accent), #B0102A); /* Subtle Gradient */
+    position: relative;
+    padding: 30px 20px 20px 20px;
+    color: var(--kfc-white);
+    overflow: hidden;
+}
+
+.promo-title {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ANIMATED DISCOUNT TEXT */
+.promo-discount-text {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--kfc-white); /* White text against red background */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0, 0, 0, 0.5); /* Initial shadow */
+    animation: redGlowPulse 3s infinite ease-in-out; /* Added animation */
+}
+
+.featured-cards {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    left: 15px;
+    right: 15px;
+}
+
+/* Featured Card Structure: Horizontal Flex (KEPT) */
+.featured-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space content and button */
+    position: relative;
+    width: 100%;
+    min-height: 100px; 
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: var(--kfc-white);
+    color: var(--dark-text);
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.featured-card .featured-card-content {
+    /* Holds name, desc, price */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px; /* Space for rank */
+    padding-right: 15px; /* Space before button */
+}
+
+.featured-card .card-rank {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary-accent);
+}
+
+.featured-card .item-name {
+    margin: 0;
+    font-size: 1.0rem;
+    font-weight: 600;
+}
+
+.featured-card .item-desc {
+    margin: 3px 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.featured-card .price {
+    font-weight: bold;
+    color: var(--primary-accent);
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* ANIMATED NEW BADGE */
+.new-badge {
+    background-color: var(--primary-accent); /* Changed to red */
+    color: var(--kfc-white); /* Changed to white */
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 5px;
+    display: inline-block;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    animation: pulseRed 1.5s infinite ease-in-out; /* Added animation */
+}
+
+/* 2. RANKING BLOCK (Horizontal Slider) */
+.ranking-block {
+    flex-grow: 1;
+    width: 60%;
+    padding: 25px 20px;
+    background-color: var(--light-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+ font-size: 1.6rem;
+ font-weight: 800;
+ margin-bottom: 20px;
+    color: var(--dark-text);
+}
+
+.cards-scroll-wrapper {
+    overflow: hidden; 
+    height: 100%;
+    padding-bottom: 20px; 
+}
+
+.cards-inner-slider {
+    display: flex;
+    width: fit-content;
+    gap: 20px;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Colorful Card Styles (VERTICAL STACK) */
+.scroll-card {
+    flex-shrink: 0; 
+    width: 180px; 
+    min-width: 180px; 
+    border-radius: 10px;
+ padding: 15px; 
+    text-align: center; 
+    position: relative;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+.scroll-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Applying vibrant colors to the cards */
+.cards-inner-slider .scroll-card:nth-child(1) { background: #FFEBEE; }
+.cards-inner-slider .scroll-card:nth-child(2) { background: #FFF8E1; }
+.cards-inner-slider .scroll-card:nth-child(3) { background: #E0F7FA; }
+.cards-inner-slider .scroll-card:nth-child(4) { background: #F3E5F5; }
+.cards-inner-slider .scroll-card:nth-child(5) { background: #E8F5E9; }
+.cards-inner-slider .scroll-card:nth-child(6) { background: #ECEFF1; }
+
+
+.scroll-card img {
+    width: 100%; 
+    height: 90px; 
+    object-fit: cover; 
+    border-radius: 6px;
+    margin-bottom: 10px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.scroll-card .card-rank-small {
+    position: absolute;
+    top: 5px; 
+    left: 10px; 
+    background-color: var(--primary-accent);
+    color: var(--kfc-white);
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 6px; 
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.scroll-card .item-name {
+    font-size: 0.95rem; 
+    min-height: 2.5em; 
+    margin: 5px 0;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+/* Shared Footer Styles (Controls Price and Button Horizontal Alignment) */
+.card-footer {
+display: flex;
+ justify-content: space-between; /* Ensures price is left, button is right */
+align-items: center;
+ margin-top: 10px;
+}
+.card-footer .price {
+    font-weight: bold;
+    color: var(--primary-accent);
+    font-size: 1.1rem;
+}
+/* ORDER BUTTON STYLING (Circular Red Plus Button) */
+.add-to-order-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--primary-accent);
+  color: var(--kfc-white);
+  border: 2px solid var(--primary-accent);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+  position: relative;
+  z-index: 15; /* ensures button always stays visible */
+}
+
+.add-to-order-btn:hover {
+  background-color: #A30D25;
+  color: var(--kfc-white);
+  transform: scale(1.15);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* SCROLL ARROWS (Manual Controls) */
+.scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20; /* keeps arrows above cards and content */
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--kfc-white);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  border: none;
+  color: var(--primary-accent);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; /* ensure fully visible */
+}
+
+.scroll-arrow:hover:not(:disabled) {
+  background-color: var(--light-bg);
+  transform: scale(1.1);
+}
+
+.scroll-arrow.left { left: 10px; }
+.scroll-arrow.right { right: 10px; }
+
+.scroll-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // ====================================================
+    // 1. ADD TO CART LOGIC (With Checkmark Feedback)
+    // ====================================================
+    const addToCartButtons = document.querySelectorAll('.add-to-order-btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            
+            // Store original content (the plus icon HTML)
+            const originalIconHtml = button.innerHTML; 
+            
+            // Visual Feedback
+            console.log(`Added to Cart: ${button.getAttribute('data-item-name')}`);
+            
+            // Temporarily update button appearance for success
+            button.innerHTML = '<i class="fas fa-check"></i>'; // Use checkmark icon
+            button.disabled = true;
+            button.style.backgroundColor = '#4CAF50'; // Solid Green for success
+            button.style.borderColor = '#4CAF50'; 
+            button.style.color = 'var(--kfc-white)';
+
+            // Revert after 1 second
+            setTimeout(() => {
+                button.innerHTML = originalIconHtml; // Revert using innerHTML
+                button.disabled = false;
+                // Revert to new solid red style
+                button.style.backgroundColor = 'var(--primary-accent)';
+                button.style.borderColor = 'var(--primary-accent)';
+                button.style.color = 'var(--kfc-white)';
+            }, 1000); 
+        });
+    });
+
+    // ====================================================
+    // 2. HORIZONTAL RANKING SLIDER LOGIC
+    // ====================================================
+    const innerSlider = document.getElementById('cards-inner-slider');
+    const leftBtn = document.getElementById('scroll-left-btn');
+    const rightBtn = document.getElementById('scroll-right-btn');
+    const cards = document.querySelectorAll('.scroll-card');
+    const totalCards = cards.length;
+    let currentSlideIndex = 0;
+    const slideDuration = 4000;
+    let intervalId;
+
+    if (totalCards > 0) {
+        
+        // Calculate the translation distance and visible cards based on screen size
+        function getCardTotalWidth() {
+            if (!cards[0]) return { width: 0, visible: 0 };
+            const cardElement = cards[0];
+            const gap = 20; // CSS Gap
+            const containerWidth = document.getElementById('ranking-scroll').offsetWidth;
+            const cardWidth = cardElement.offsetWidth;
+            
+            // Estimate visible cards (only needed for max index check)
+            const cardsVisible = Math.floor(containerWidth / (cardWidth + gap));
+
+            return { width: cardWidth + gap, visible: cardsVisible }; 
+        }
+
+        // Function to move the slider using CSS transform
+        function updateSliderPosition() {
+            if (window.innerWidth <= 992) {
+                // Disable transform on mobile since scrolling is native
+                innerSlider.style.transform = `translateX(0px)`;
+                leftBtn.disabled = true;
+                rightBtn.disabled = true;
+                return;
+            }
+            
+            const { width: cardTotalWidth, visible: cardsVisible } = getCardTotalWidth();
+            
+            // Ensure index doesn't exceed the last scrollable position
+            const maxIndex = totalCards - cardsVisible;
+            if (maxIndex <= 0) {
+                // Not enough cards to scroll
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex > maxIndex) {
+                 currentSlideIndex = maxIndex;
+            }
+            
+            const translationX = -(currentSlideIndex * cardTotalWidth);
+            innerSlider.style.transform = `translateX(${translationX}px)`;
+            
+            // Update button disabled state
+            leftBtn.disabled = currentSlideIndex === 0;
+            rightBtn.disabled = currentSlideIndex >= maxIndex; 
+        }
+
+        // Function to handle the actual movement (manual or auto)
+        function moveSlider(direction) {
+            const { visible: cardsVisible } = getCardTotalWidth();
+            const maxIndex = totalCards - cardsVisible;
+            
+            if (maxIndex <= 0) return; // Cannot scroll
+
+            let nextIndex = currentSlideIndex + direction;
+            
+            if (nextIndex > maxIndex) {
+                // If moving past the end, loop to the beginning
+                nextIndex = 0; 
+            } else if (nextIndex < 0) {
+                // If moving left from the start, loop to the end
+                nextIndex = maxIndex;
+            }
+
+            currentSlideIndex = nextIndex;
+            updateSliderPosition();
+        }
+
+        // Auto-advance logic
+        function startAutoAdvance() {
+            if (window.innerWidth <= 992) return;
+            clearInterval(intervalId);
+            intervalId = setInterval(() => {
+                moveSlider(1); // Advance one slide
+            }, slideDuration);
+        }
+
+        // Manual button controls (pause and restart auto-advance)
+        leftBtn.addEventListener('click', () => {
+            clearInterval(intervalId);
+            moveSlider(-1);
+            startAutoAdvance();
+        });
+
+        rightBtn.addEventListener('click', () => {
+            clearInterval(intervalId);
+            moveSlider(1);
+            startAutoAdvance();
+        });
+
+        // Initialize slider and start auto-advance
+        updateSliderPosition(); 
+        startAutoAdvance();
+        
+        // Recalculate position on window resize
+        window.addEventListener('resize', () => {
+             updateSliderPosition();
+             if (window.innerWidth <= 992) {
+                 clearInterval(intervalId);
+             } else {
+                 startAutoAdvance();
+             }
+        });
+    }
+});
+</script>
+
+
+
+
+
+
+
+ <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font family -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Define Custom CSS Variables */
+        :root {
+            --laoban-black: #333;
+            --laoban-gray-light: #f5f5f5;
+            --laoban-red-text: #C8102E; /* Use for highlight/See more */
+            --laoban-border: #eee;
+            --sidebar-bg: var(--laoban-red-text); /* CHANGED to use the red accent color */
+        }
+
+        /* Set base font and background */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--laoban-gray-light);
+            color: var(--laoban-black);
+        }
+
+        /* Custom Keyframe Animation for the Pin */
+        @keyframes pin-pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.7); /* Red text color pulse */
+                opacity: 1;
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 20px rgba(200, 16, 46, 0);
+                opacity: 0.9;
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(200, 16, 46, 0);
+                opacity: 1;
+            }
+        }
+
+        /* Apply animation to the icon container */
+        .animated-pin-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* The actual icon (SVG) inside the container */
+        .animated-pin-container svg {
+            animation: pin-pulse 2s infinite ease-in-out;
+            border-radius: 9999px; /* Make it circular for the pulse effect */
+            background-color: white; /* Give the icon a visible base */
+            padding: 8px; /* Padding for the pin shape */
+        }
+        
+        /* Map Background Styling */
+        .map-background {
+            /* Using a subtle, light image pattern to hint at a map/topology */
+            background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ccc' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+            background-color: var(--laoban-gray-light);
+            height: 60vh; /* Increased height to accommodate the overlay */
+            min-height: 400px;
+            position: relative; /* Ensure the map container is relative for the pin's position */
+        }
+
+        /* Overlay Container for White Card + Sidebar */
+        .map-info-overlay {
+            /* Position the overlay absolutely on the right */
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 80%; /* Takes up 80% on small screens */
+            max-width: 500px; /* Limit max width for desktop */
+            z-index: 20;
+            overflow: hidden;
+            border-radius: 0 1rem 1rem 0; /* Match section rounded corners */
+        }
+
+        /* Responsive adjustments for the overlay on larger screens */
+        @media (min-width: 1024px) { /* lg breakpoint */
+            .map-info-overlay {
+                width: 50%;
+                min-width: 450px;
+            }
+        }
+
+
+
+
+
+    </style>
+        <!-- banner -->
+        <!-- Added relative class for absolute positioning of the overlay -->
+        <section class="map-banner-section rounded-2xl shadow-xl overflow-hidden border border-gray-200 relative">
+            
+            <div class="map-background" id="liveMapBanner">
+                <!-- Content overlay to center the animated icon over the map area -->
+                <div class="map-overlay-content flex items-center justify-center w-full h-full relative">
+                    
+                    <div class="map-center-logo text-center">
+                        <div class="logo-inner">
+                            
+                            <!-- Animated Location Icon - NOW WRAPPED IN <a> TAG -->
+                            <a href="#location-details" class="block transition duration-200 hover:scale-105 active:scale-95" title="View Location Details">
+                                <div class="animated-pin-container inline-block">
+                                    <svg class="w-16 h-16 sm:w-20 sm:h-20" fill="var(--laoban-red-text)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- START: Overlay container matching the image (White Card + Red Sidebar) -->
+            <div class="map-info-overlay flex flex-col md:flex-row shadow-2xl">
+                
+                <!-- White Content Card (Bus Info) - Takes 2/3 width on desktop -->
+                <div class="bg-white p-6 md:p-8 flex-auto md:w-2/3">
+                    
+                    <!-- Icon and Title Row -->
+                    <div class="flex items-center mb-4">
+                        <!-- Location Icon (Updated to match the map pin) -->
+                        <div class="p-2 rounded-full mr-3" style="background-color: var(--sidebar-bg);">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg leading-tight" style="color: var(--laoban-black);">E-DA Bus Timetable</p>
+                            <p class="text-xs text-gray-500">passenger transport</p>
+                        </div>
+                    </div>
+
+                    <!-- Bus Description -->
+                    <p class="text-sm leading-relaxed text-gray-700 mb-6">
+                        E-DA Bus has a stop at the Zuoying High Speed Rail Station. The journey from Zuoying High Speed Rail Station to the E-DA Royal Hotel takes approximately 
+                        <span class="font-semibold" style="color: var(--laoban-red-text);">25 minutes</span>, making transportation very convenient (a one-way fare to the E-DA Royal Hotel is NT$34 per ticket). Boarding location: 
+                        <span class="font-medium" style="color: var(--laoban-red-text);">Zuoying HSR Exit 2, Bus Stop 5 (Bus No. 8501)</span>.
+                    </p>
+                </div>
+
+                <!-- Red Sidebar (Menu) - Uses the primary red accent color -->
+                <div class="p-6 md:p-8 text-white md:w-1/3" style="background-color: var(--sidebar-bg);">
+                    <!-- Title separator uses white for high contrast -->
+                    <h3 class="text-xl font-bold mb-6 pt-1" style="border-bottom: 2px solid white; padding-bottom: 4px;">E-DA Bus Timetable</h3>
+                    
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#" class="block text-sm font-light hover:underline">Passenger transportation fee</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block text-sm font-light hover:underline">High-speed rail timetable</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block text-sm font-light hover:underline">Taiwan Railways timetable</a>
+                        </li>
+                        <li>
+                            <a href="#" class="block text-sm font-light hover:underline">Drive by yourself</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END: Overlay container -->
+            
+        </section>   
+    </div>
+
+
+
+<!--footer-->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Laoban Logo">
+                <h3>Laoban</h3>
+            </div>
+            <p>
+                Experience authentic Chinese cuisine with handcrafted dumplings and traditional flavors. Made fresh daily with the finest ingredients.
+            </p>
+            <div class="contact-info">
+                <p><i class="fas fa-phone-alt"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> hello@laoban.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Chinatown Street, New York, NY 10013</p>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Order Online</a></li>
+                <li><a href="#">Locations</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-follow">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <h3>Hours</h3>
+            <div class="hours-list">
+                <p>Monday - Thursday: 11:00 AM - 9:00 PM</p>
+                <p>Friday - Saturday: 11:00 AM - 10:00 PM</p>
+                <p>Sunday: 12:00 PM - 8:00 PM</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Laoban Restaurant. All rights reserved. | Made with care in New York's Chinatown</p>
+    </div>
+</footer>
+
+<style>
+    
+
+
+
+/*footer*/
+/* --- Footer Styles --- */
+.footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 60px 20px 20px;
+    font-size: 0.9em;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.footer-about {
+    flex: 2;
+    min-width: 250px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.footer-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.footer-logo h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.footer-about p, .contact-info p {
+    margin: 5px 0;
+    color: #ccc;
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: #d94b28; /* Primary red color for icons */
+}
+
+.footer-links, .footer-follow {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-links h3, .footer-follow h3 {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li a, .hours-list p {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #d94b28; /* Primary red color on hover */
+}
+
+.social-icons {
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.2em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #d94b28; /* Primary red color on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+/* --- Responsive Media Queries for Footer --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-about, .footer-links, .footer-follow {
+        min-width: unset;
+        width: 100%;
+    }
+    .footer-logo {
+        justify-content: center;
+    }
+    .contact-info p {
+        justify-content: center;
+    }
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+</style>
+
+
+
+
+
+
+
+<!--chatbot-->
+<!-- Chatbot Widget -->
+<div id="chatbot-container" class="chatbot-container">
+    <div id="chatbot-header" class="chatbot-header">
+        <span class="chatbot-title">
+            <span class="pixel-icon"></span> LaobanBot
+        </span>
+        <button id="chatbot-close" class="chatbot-close">&times;</button>
+    </div>
+
+    <div id="chatbot-messages" class="chatbot-messages">
+        <div class="message bot-message" id="chatbot-greeting">👋 Hi there! I'm LaobanBot. How can I help you today?</div>
+    </div>
+
+    <div class="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Type a message..." />
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
+
+<button id="chatbot-toggle" class="chatbot-toggle">
+    <span class="pixel-icon">💬</span>
+</button>
+
+<!-- Chatbot Styles -->
+ <style>
+    
+/* --- Pixelated Font (Optional: Requires external import) --- */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* --- Maroon Pixelated Color Palette --- */
+:root {
+    --maroon-dark: #6a0505; /* Deep, rich maroon for main elements */
+    --maroon-medium: #8d1c1c; /* Slightly lighter maroon */
+    --maroon-light: #ad4444; /* Lighter maroon for accents/hovers */
+    --pixel-black: #2b0000; /* Almost black, dark pixel color */
+    --pixel-white: #f0f0f0; /* Off-white for pixel highlights */
+    --bg-chat-area: #fff8f8; /* Very light maroon tint for chat background */
+    --text-color: var(--pixel-black);
+    --shadow-color: rgba(0, 0, 0, 0.7); /* Darker, harsher shadow for pixel look */
+    --border-pixel: 2px; /* Define pixel border size */
+}
+
+/* --- ISOLATED PIXEL STYLING (APPLIED ONLY TO CHATBOT ELEMENTS) --- */
+/* The 'body' selector has been removed to stop page-wide styling */
+.chatbot-container, .chatbot-header, .chatbot-messages,
+.message, .chatbot-input-area, #chatbot-input, #chatbot-send,
+.chatbot-toggle {
+    image-rendering: pixelated; /* Ensures pixel art images stay crisp */
+    font-family: 'Press Start 2P', cursive; /* Apply pixel font ONLY to these elements */
+    font-size: 13px; /* Smaller base font size for pixel feel */
+    letter-spacing: 0.05em; /* Some letter spacing for pixel fonts */
+    -webkit-font-smoothing: none; /* Crucial for pixel fonts on some browsers */
+    -moz-osx-font-smoothing: grayscale; /* Crucial for pixel fonts */
+}
+
+/* --- CHATBOT TOGGLE BUTTON --- */
+.chatbot-toggle {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    background-color: var(--maroon-medium);
+    border: var(--border-pixel) solid var(--maroon-dark); /* Pixelated border */
+    border-radius: 5px; /* Square-ish corners for pixel art */
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    box-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black); /* Hard, pixelated shadow */
+    transition: transform 0.1s linear, background-color 0.1s linear; /* Pixel-like transitions */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* --- CSS ADDITION: IDLE JUMP ANIMATION --- */
+@keyframes botJump {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.05); /* Lifts and slightly enlarges */
+    }
+}
+
+.chatbot-toggle {
+    /* ... existing styles ... */
+    
+    /* ADD THIS LINE for the subtle animation */
+    animation: botJump 4s infinite ease-in-out; 
+    
+    /* Ensure the button's hover effect overrides the animation when clicked */
+    transition: transform 0.1s linear, background-color 0.1s linear; 
+    z-index: 1000;
+    /* ... existing styles ... */
+}
+
+
+.chatbot-toggle:hover {
+    background-color: var(--maroon-light);
+    transform: translate(var(--border-pixel), var(--border-pixel)); /* "Pressing in" effect */
+    box-shadow: none; /* Shadow disappears when "pressed" */
+}
+.chatbot-toggle .pixel-icon {
+    font-size: 30px; /* Larger icon in toggle */
+    line-height: 1; /* Keep icon vertically centered */
+    color: var(--pixel-white); /* White text/icon */
+    text-shadow: var(--border-pixel) var(--border-pixel) 0 var(--maroon-dark); /* Pixel shadow for icon */
+}
+
+
+/* --- CHATBOT CONTAINER --- */
+.chatbot-container {
+    position: fixed;
+    bottom: 140px;
+    right: 50px;
+    width: 390px; /* Adjust size for pixel density */
+    max-height: 500px;
+    background: var(--bg-white);
+    border-radius: 5px; /* Square corners */
+    border: var(--border-pixel) solid var(--maroon-dark);
+    box-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black); /* Pixelated shadow */
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+    color: var(--text-color);
+}
+
+/* --- CHATBOT HEADER --- */
+.chatbot-header {
+    background: var(--maroon-dark);
+    color: var(--pixel-white);
+    padding: 10px; /* Smaller padding */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: var(--border-pixel) solid var(--maroon-dark); /* Hard header separator */
+}
+.chatbot-title {
+    font-weight: normal; /* Pixel fonts often don't support bold well */
+    font-size: 14px; /* Title font size */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black);
+}
+.chatbot-header .pixel-icon {
+    font-size: 20px;
+    line-height: 1;
+    text-shadow: none; /* Icon itself doesn't need text shadow here */
+}
+.chatbot-close {
+    background: none;
+    color: var(--pixel-white);
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.1s linear;
+    text-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black);
+}
+.chatbot-close:hover {
+    color: var(--maroon-light);
+    text-shadow: var(--border-pixel) var(--border-pixel) 0 var(--maroon-medium);
+}
+
+
+/* --- CHAT MESSAGES --- */
+.chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 12px;
+    background: var(--bg-chat-area); /* Light maroon tint */
+    color: var(--text-color);
+}
+.chatbot-messages::-webkit-scrollbar { width: 10px; }
+.chatbot-messages::-webkit-scrollbar-thumb { background: var(--maroon-light); border-radius: 2px; }
+.chatbot-messages::-webkit-scrollbar-track { background: var(--bg-chat-area); }
+
+.message {
+    margin-bottom: 8px; /* Smaller margin */
+    padding: 8px 10px;
+    border-radius: 3px; /* Very subtle rounding */
+    line-height: 1.4;
+    max-width: 85%;
+    box-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black); /* Hard shadow for bubbles */
+    border: 1px solid var(--maroon-dark); /* Outline for bubbles */
+}
+.bot-message {
+    background: var(--pixel-white); /* White background for bot messages */
+    align-self: flex-start;
+    border-radius: 3px;
+    color: var(--text-color);
+}
+.user-message {
+    background: var(--maroon-medium); /* Maroon for user messages */
+    color: var(--pixel-white);
+    align-self: flex-end;
+    margin-left: auto;
+    border-radius: 3px;
+}
+
+/* --- INPUT AREA --- */
+.chatbot-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: var(--border-pixel) solid var(--maroon-dark); /* Hard separator */
+    background: var(--bg-white);
+}
+#chatbot-input {
+    flex: 1;
+    padding: 8px 10px;
+    border-radius: 3px; /* Squared input */
+    border: var(--border-pixel) solid var(--maroon-dark);
+    outline: none;
+    font-size: 12px;
+    color: var(--text-color);
+    background-color: var(--pixel-white);
+    box-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black);
+    transition: border-color 0.1s linear, box-shadow 0.1s linear;
+}
+#chatbot-input:focus {
+    border-color: var(--maroon-light);
+    box-shadow: none; /* Focus effect could be removing shadow */
+    transform: translate(var(--border-pixel), var(--border-pixel));
+}
+#chatbot-send {
+    background: var(--maroon-medium);
+    color: var(--pixel-white);
+    border: var(--border-pixel) solid var(--maroon-dark);
+    padding: 0 15px;
+    margin-left: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black);
+    transition: transform 0.1s linear, background-color 0.1s linear, box-shadow 0.1s linear;
+    font-weight: normal;
+}
+#chatbot-send:hover {
+    background: var(--maroon-light);
+    transform: translate(var(--border-pixel), var(--border-pixel));
+    box-shadow: none;
+}
+
+/* --- Quick Reply Buttons (Adjusted for Pixel Style) --- */
+.quick-reply-buttons {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.chat-quick-reply, .chat-quick-reply-link {
+    background: var(--pixel-white);
+    border: var(--border-pixel) solid var(--maroon-dark);
+    color: var(--text-color);
+    padding: 6px 10px;
+    border-radius: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.1s linear, transform 0.1s linear;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    box-shadow: var(--border-pixel) var(--border-pixel) 0 var(--pixel-black);
+}
+.chat-quick-reply:hover {
+    background: var(--maroon-light);
+    color: var(--pixel-white);
+    transform: translate(var(--border-pixel), var(--border-pixel));
+    box-shadow: none;
+}
+.chat-quick-reply-link {
+    display: block;
+    width: 100%;
+    background: var(--maroon-dark);
+    color: var(--pixel-white);
+    border-color: var(--maroon-dark);
+    font-weight: normal;
+}
+.chat-quick-reply-link:hover {
+    background: var(--maroon-medium);
+    transform: translate(var(--border-pixel), var(--border-pixel));
+    box-shadow: none;
+}
+
+/* --- Pixel Icon for Text (if you want to use text-based emojis as pixel art) --- */
+.pixel-icon {
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1;
+    vertical-align: middle;
+    /* You can use text-shadow for a pixelated look or if using a custom font */
+    /* text-shadow: 1px 1px 0 #000; */
+}
+</style>
+
+<script>
+// --- DYNAMIC MENU DATA (Required for full functionality) ---
+const menuData = {
+    'A LA CARTE': [
+        { name: "POPCORN CHICKEN", keywords: ["popcorn", "crispy"], price: 70 },
+        { name: "CHICKEN NUGGET", keywords: ["nugget", "塊"], price: 70 },
+        { name: "FRIES", keywords: ["fries", "薯條"], price: 70 },
+    ],
+    'CHINESE OMELET': [
+        { name: "ORIGINAL OMELET", keywords: ["original", "egg"], price: 40 },
+        { name: "HAM OMELET", keywords: ["ham", "火腿"], price: 50 },
+        { name: "CHEESE OMELET", keywords: ["cheese", "起司"], price: 50 },
+    ],
+    'DRINKS': [
+        { name: "BLACK TEA (LARGE)", keywords: ["black", "tea", "紅茶"], price: 30 },
+        { name: "BOBA MILK TEA (LARGE)", keywords: ["boba", "pearl", "bubble"], price: 55 },
+    ]
+};
+
+// --- DOM ELEMENTS ---
+const chatbotToggle = document.getElementById("chatbot-toggle");
+const chatbotContainer = document.getElementById("chatbot-container");
+const chatbotClose = document.getElementById("chatbot-close");
+const chatbotSend = document.getElementById("chatbot-send");
+const chatbotInput = document.getElementById("chatbot-input");
+const chatbotMessages = document.getElementById("chatbot-messages");
+const chatbotGreeting = document.getElementById("chatbot-greeting");
+
+
+// --- UTILITY FUNCTIONS ---
+function addMessage(content, sender = "bot") {
+    const msg = document.createElement("div");
+    msg.classList.add("message", `${sender}-message`);
+    // Crucial: Use innerHTML and toUpperCase for pixel style consistency
+    msg.innerHTML = content.toUpperCase(); 
+    chatbotMessages.appendChild(msg);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight; // Auto-scroll
+}
+
+function simulateUserClick(text) {
+    addMessage(text, "user");
+    chatbotInput.value = "";
+    
+    setTimeout(() => {
+        handleBotResponse(text);
+    }, 300);
+}
+
+
+// --- CORE BOT LOGIC (Using Template Literals to fix multi-line errors) ---
+function handleBotResponse(text) {
+    const lowerText = text.toLowerCase();
+    let responseHTML = "";
+
+    // 1. Menu Item Match
+    let foundItem = null;
+    let foundCategory = null;
+
+    for (const categoryName in menuData) {
+        foundItem = menuData[categoryName].find(item => 
+            item.keywords.some(keyword => lowerText.includes(keyword)) ||
+            lowerText.includes(item.name.toLowerCase())
+        );
+        if (foundItem) {
+            foundCategory = categoryName;
+            break;
+        }
+    }
+
+    if (foundItem) {
+        responseHTML = `THE **${foundItem.name}** IS ON OUR ${foundCategory} MENU AND COSTS **$${foundItem.price}**! <br><br>
+                       <button class="chat-quick-reply" onclick="simulateUserClick('PLACE ORDER')">PLACE ORDER</button>`;
+    
+    // 2. Keyword/Service Responses
+    } else if (lowerText.includes("menu") || lowerText.includes("category") || lowerText.includes("help")) {
+        responseHTML = `HOW CAN I HELP YOU NAVIGATE THE MENU?
+                        <div class="quick-reply-buttons">
+                           <button class="chat-quick-reply" onclick="simulateUserClick('CHECK HOURS')">CHECK HOURS 🕐</button>
+                           <button class="chat-quick-reply" onclick="simulateUserClick('PLACE ORDER')">PLACE ORDER 🛒</button>
+                           <button class="chat-quick-reply" onclick="simulateUserClick('FIND LOCATION')">FIND LOCATION 📍</button>
+                        </div>`;
+    
+    } else if (lowerText.includes("order") || lowerText.includes("place order")) {
+        responseHTML = `YOU CAN PLACE YOUR ORDER DIRECTLY ON OUR MENU PAGE. CLICK BELOW! <br><br>
+                       <a href='menu.html' target='_blank'><button class='chat-quick-reply-link'>GO TO MENU PAGE</button></a>`;
+    
+    } else if (lowerText.includes("location") || lowerText.includes("where are you") || lowerText.includes("find location")) {
+        responseHTML = "📍 WE'RE LOCATED IN NEW YORK'S CHINATOWN AT 123 CHINATOWN STREET.";
+    
+    } else if (lowerText.includes("hours") || lowerText.includes("check hours")) {
+        responseHTML = "WE’RE OPEN MON–THU 11AM–9PM, FRI–SAT 11AM–10PM, AND SUN 12–8PM 🕐";
+
+    } else if (lowerText.includes("hello") || lowerText.includes("hi")) {
+        responseHTML = "HELLO THERE! I'M LAOBANBOT, YOUR FRIENDLY MENU ASSISTANT. HOW CAN I HELP? 👋";
+
+    // 3. Fallback (The block that caused the syntax error, now fixed with backticks)
+    } else {
+        responseHTML = `I'M NOT SURE I UNDERSTAND. TRY ASKING ME ABOUT A SPECIFIC ITEM (LIKE 'POPCORN CHICKEN') OR USE ONE OF THE QUICK OPTIONS BELOW!
+                        <div class='quick-reply-buttons'>
+                           <button class='chat-quick-reply' onclick='simulateUserClick("MENU")'>MENU HELP</button>
+                           <button class='chat-quick-reply' onclick='simulateUserClick("ORDER")'>ORDER</button>
+                        </div>`;
+    }
+    
+    addMessage(responseHTML, "bot");
+}
+
+
+function sendMessage() {
+    const userText = chatbotInput.value.trim();
+    if (!userText) return;
+
+    // Add user message (will be capitalized inside addMessage)
+    addMessage(userText, "user"); 
+    chatbotInput.value = "";
+    
+    // Trigger bot response after a short delay
+    setTimeout(() => {
+        handleBotResponse(userText);
+    }, 600);
+}
+
+
+// --- INITIALIZATION AND CONTEXTUAL LOGIC ---
+document.addEventListener("DOMContentLoaded", () => {
+    // Toggle Functionality
+    chatbotToggle.addEventListener("click", () => {
+        chatbotContainer.style.display = "flex";
+        chatbotToggle.style.display = "none";
+    });
+
+    chatbotClose.addEventListener("click", () => {
+        chatbotContainer.style.display = "none";
+        chatbotToggle.style.display = "flex";
+    });
+
+    // Send Message Handlers
+    chatbotSend.addEventListener("click", sendMessage);
+    chatbotInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage();
+    });
+
+    // 🧠 Context-Aware Prompts (Initial Greeting)
+    const url = window.location.href.toLowerCase();
+    
+    let initialGreeting = "👋 HI THERE! I'M LAOBANBOT. HOW CAN I HELP YOU TODAY?";
+
+    if (url.includes("checkout") || url.includes("cart")) {
+        initialGreeting = "🛒 **IMPORTANT:** HAVING TROUBLE CHECKING OUT? ASK ME ABOUT YOUR COUPON OR PAYMENT!";
+    } else if (url.includes("menu")) {
+        initialGreeting = "🍜 **WELCOME!** ASK ME THE PRICE OR INGREDIENTS OF ANY ITEM!";
+    } else if (url.includes("contact") || url.includes("about")) {
+        initialGreeting = "📍 **NEED HELP?** ASK ME FOR OUR EXACT ADDRESS OR STORE HOURS!";
+    }
+    
+    // Crucial: Set the initial greeting text and ensure it is uppercase
+    chatbotGreeting.innerHTML = initialGreeting.toUpperCase();
+});
+</script>
+<script src="home.js"></script>
+</body>
+</html>

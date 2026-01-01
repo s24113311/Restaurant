@@ -1,0 +1,299 @@
+
+:root {
+  --primary-red: #d94b28;
+  --dark-background: #ba472d;
+  --light-background: #e66c4d;
+  --yellow-tag: #ffda6e;
+  --green-tag: #4CAF50;
+  --text-color-dark: #333;
+  --text-color-light: #fff;
+  --hover-color: red;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: var(--text-color-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the content blocks horizontally */
+  min-height: 100vh;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 90%;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  color: var(--text-color-dark);
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+  color: var(--primary-red);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  color: var(--primary-red);
+  transition: color 0.3s ease;
+}
+
+.cart-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cart-icon:hover {
+  color: var(--hover-color);
+}
+
+/* --- Navbar Responsive --- */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+}
+
+
+/*this time i use inline*/
+
+/* --- FOOTER STYLES --- */
+/* --- Footer Columns --- */
+.footer-about {
+  flex: 2; /* Takes up more space than other columns */
+  min-width: 250px;
+}
+
+.footer-links,
+.footer-follow {
+  flex: 1; /* Takes up equal space */
+  min-width: 150px;
+}
+
+/* --- Logo & Info --- */
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.footer-about p,
+.contact-info p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+.contact-info i {
+  margin-right: 5px;
+  margin-bottom: 0.5px;
+  color: var(--primary-red);
+  margin: 0;
+}
+
+/* --- Links & Headings --- */
+.footer-links h3,
+.footer-follow h3 {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: var(--primary-red); /* Assuming --primary-red is defined elsewhere */
+}
+
+/* --- Social Icons --- */
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.2em;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: var(--primary-red);
+}
+
+/* --- Bottom Section --- */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+}
+
+/* --- RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-about,
+  .footer-links,
+  .footer-follow {
+    min-width: unset;
+    width: 100%;
+    margin-bottom: 20px; /* Adds space between stacked columns */
+  }
+  .footer-logo {
+    justify-content: center;
+  }
+  /* Updated selectors for better alignment on mobile */
+  .footer-about p,
+  .contact-info p {
+    display: flex; /* Aligns text and icons horizontally */
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --- Updated --- */
+body {
+ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+ margin: 0;
+ padding: 0;
+ background-color: #f0f2f5;
+ color: var(--text-color-dark);
+ min-height: 100vh;
+}
+
+/* --- New Main Content Wrapper --- */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background-color: var(--text-color-light);
+  color: var(--text-color-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%; /* Change to 100% to fill the screen */
+  max-width: none; /* Remove max-width to allow it to be full-width */
+  margin: 0;
+}
+
+/* ---------------- Checkout Header ---------------- */
+.checkout-header {
+  background-color: var(--primary-red);
+  color: white;
+  width: 100%; /* Change to 100% to fill the screen */
+  max-width: none; /* Remove max-width */
+  margin: 0;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* ---------------- Contact Container ---------------- */
+.contact-container {
+  max-width: 1200px; /* Set a specific max-width for the content */
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 2rem 1rem;
+}
+
+/* --- FOOTER STYLES --- */
+.footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+  padding: 30px 20px;
+  font-size: 0.9em;
+  width: 100%; /* Ensures the background spans the full screen width */
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px; /* Adjust this to match the contact container's max-width for visual consistency */
+  margin: 0 auto;
+  gap: 40px;
+}
+
+

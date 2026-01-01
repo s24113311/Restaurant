@@ -1,0 +1,61 @@
+import React from "react";
+import { Clock, Utensils, Heart, Award } from "lucide-react";
+
+export default function RestaurantFeatures() {
+  const features = [
+    {
+      icon: Clock,
+      title: "Fresh Daily",
+      description: "All dumplings and noodles made fresh every morning using traditional techniques passed down through generations",
+      color: "text-red-600"
+    },
+    {
+      icon: Utensils,
+      title: "Authentic Recipes",
+      description: "Traditional Chinese recipes with premium ingredients sourced directly from trusted suppliers",
+      color: "text-orange-600"
+    },
+    {
+      icon: Heart,
+      title: "Family Owned",
+      description: "A family business serving the community for over 15 years with love, care, and passion for great food",
+      color: "text-yellow-600"
+    },
+    {
+      icon: Award,
+      title: "Award Winning",
+      description: "Recognized as 'Best Dumplings in NYC' by New York Food Magazine and featured in multiple publications",
+      color: "text-green-600"
+    }
+  ];
+
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Why Choose Laoban?
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            We're more than just a restaurant - we're a bridge to authentic Chinese culture through exceptional food and warm hospitality
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div className={`w-16 h-16 ${feature.color.replace('text-', 'bg-').replace('-600', '-100')} rounded-full flex items-center justify-center mb-6`}>
+                <feature.icon className={`w-8 h-8 ${feature.color}`} />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

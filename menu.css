@@ -1,0 +1,407 @@
+:root {
+  --primary-red: #e62e2e;
+  --dark-background: #ba472d;
+  --light-background: #e66c4d;
+  --yellow-tag: #ffda6e;
+  --green-tag: #4caf50;
+  --text-dark: #333;
+  --text-light: #fff;
+  --hover-color: red;
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  color: var(--text-dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background: var(--text-light);
+  color: var(--text-dark);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.navbar-links a:hover {
+  color: var(--primary-red);
+}
+
+.cart-icon {
+  display: flex;
+  align-items: center;
+  color: var(--primary-red);
+  transition: color 0.3s;
+}
+
+.cart-icon:hover {
+  color: var(--hover-color);
+}
+
+.cart-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Navbar Responsive */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+}
+
+/* --- Menu Header --- */
+.menu-header {
+  background: var(--primary-red);
+  color: var(--text-light);
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.menu-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.menu-header p {
+  max-width: 700px;
+  margin: 0 auto 15px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.rating i {
+  color: #ffc107;
+}
+
+.rating span {
+  margin-left: 8px;
+}
+
+/* --- Category Tabs --- */
+.subcategory-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.tab-button {
+  background: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.tab-button.active {
+  background: var(--primary-red);
+  color: var(--text-light);
+}
+
+/* --- Menu Items --- */
+.menu-items {
+  padding: 40px 0;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.menu-item {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.menu-item .p-4 {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.menu-item h3 {
+  margin: 0 0 5px;
+  font-size: 20px;
+}
+
+.menu-item p {
+  font-size: 14px;
+  color: #666;
+  flex-grow: 1;
+}
+
+.item-rating {
+  color: #ffc107;
+  margin: 10px 0;
+}
+
+.item-rating span {
+  font-size: 14px;
+  color: #666;
+  margin-left: 5px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary-red);
+}
+
+.add-to-order {
+  background: var(--primary-red);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.add-to-order:hover {
+  background: #cc2929;
+}
+
+/* --- Footer --- */
+.footer {
+  background: #000; /* PURE BLACK */
+  color: #ccc;
+  padding: 40px 20px;
+  font-size: 0.9em;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.footer-about,
+.footer-links,
+.footer-follow {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.footer-about p,
+.contact-info p {
+  margin: 5px 0;
+  color: #ccc;
+}
+
+.contact-info i {
+  margin-right: 5px;
+  color: var(--primary-red);
+}
+
+.footer-links h3,
+.footer-follow h3 {
+  color: #fff;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--primary-red);
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.2em;
+  margin-right: 15px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: var(--primary-red);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+  font-size: 0.8em;
+  color: #888;
+}
+
+/* --- Responsive Footer --- */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-about,
+  .footer-links,
+  .footer-follow {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .footer-logo {
+    justify-content: center;
+  }
+}
+
+
+
+/* Custom CSS for the tab buttons */
+.tab-button {
+  padding: 8px 16px;
+  border-radius: 9999px; /* Tailwind's rounded-full */
+  font-weight: 600;      /* Tailwind's font-semibold */
+  background-color: #f3f4f6; /* Tailwind bg-gray-200 */
+  color: #1f2937;        /* Tailwind text-gray-800 */
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.tab-button:hover {
+  background-color: #e5e7eb; /* Tailwind bg-gray-300 */
+}
+
+.tab-button.active {
+  background-color: #ef4444; /* Tailwind bg-red-500 */
+  color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -2px rgba(0, 0, 0, 0.06);
+}
+  /* --- Fancy Notification (Toast) Styles --- */
+        .cart-notification {
+            position: fixed;
+            bottom: 20px; /* Position from the bottom of the viewport */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            background: var(--primary-red); /* Uses your defined primary red color */
+            color: var(--text-light); /* White text */
+            padding: 12px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 2000; /* Ensure it's above everything else */
+            opacity: 0; /* Initially hidden */
+            visibility: hidden;
+            /* Added transition for smoother entry/exit */
+            transition: opacity 0.4s ease-in-out, visibility 0.4s, transform 0.4s ease-in-out;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cart-notification.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0); /* Ensure it's fully visible */
+        }
+        
+        /* For mobile, use the full width */
+        @media (max-width: 600px) {
+            .cart-notification {
+                width: 90%;
+                left: 5%;
+                transform: translateX(0);
+            }
+        }
+
+
+/* ----------------------------------------------------- */
+/* 5. INTEGRATED BOX STYLING (from the previous step) */
+/* ----------------------------------------------------- */
+.item-controls {
+    /* ... (use the previous refined styles here) ... */
+    display: flex; 
+    align-items: center;
+    height: 30px;          
+    border: 1px solid #ddd;   
+    border-radius: 6px;      
+    overflow: hidden;        
+    background-color: #f7f7f7; 
+}

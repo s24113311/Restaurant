@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laoban Checkout</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="orderConfirmation.css">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen font-inter">
+
+    <!-- Navbar -->
+    <nav class="navbar flex items-center justify-between px-6 py-4 bg-white shadow">
+        <div class="navbar-left">
+            <a href="#" class="logo-link">
+                <img src="images/logo.png" alt="Laoban Logo" class="h-10" />
+            </a>
+        </div>
+        <ul class="navbar-links flex space-x-6">
+            <li><a href="#home" class="hover:text-red-500">HOME</a></li>
+            <li><a href="#menu" class="hover:text-red-500">MENU</a></li>
+            <li><a href="#contact" class="hover:text-red-500">CONTACT</a></li>
+        </ul>
+        <div class="navbar-right">
+            <a href="#cart" class="cart-icon text-gray-700 hover:text-red-500" aria-label="View Cart">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="w-6 h-6">
+                    <path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H209.7c-34.1 0-65.3-17.2-84.6-46.6l-5.4-28.5-49.7-292.7C48.6 56.6 28.9 48 24 48H12c-13.3 0-24-10.7-24-24s10.7-24 24-24H24zM176 512c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zm320 0c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40z"/>
+                </svg>
+            </a>
+        </div>
+    </nav>
+  
+       <!-- Green Header -->
+<div class="w-screen bg-green-600 text-white p-6 md:p-10 text-center relative z-10">
+    <div class="flex items-center justify-center mb-4">
+        <!-- The pulsing checkmark icon -->
+        <div class="bg-white rounded-full p-2 animate-pulse">
+            <svg class="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+    </div>
+  <h1 class="text-2xl md:text-3xl font-bold mb-1">
+    Thank you for your order, <span id="customer-name-display">Guest</span>!
+  </h1>
+  <p class="text-sm md:text-base opacity-90">
+    Your order has been placed successfully.
+  </p>
+</div>
+
+<main class="flex-grow flex flex-col items-center p-4">
+    <div class="w-[900px] bg-white rounded-xl shadow-lg overflow-hidden -mt-8 relative z-20">
+        <div class="p-6 md:p-10 text-gray-800">
+           <h2 class="text-xl md:text-2xl font-bold mb-4">
+    Order Summary 
+    <span id="confirmation-order-id" class="text-gray-500 font-normal text-sm md:text-base">
+        (ID: #loading)
+    </span>
+</h2> 
+
+<div id="confirmation-items-container" class="space-y-4 pb-4 border-b border-gray-200 mb-4">
+    </div>
+            <div class="space-y-2 text-gray-600">
+                <div class="flex justify-between items-center">
+                    <span>Subtotal</span>
+                    <span id="confirmation-subtotal">$12.99</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span>Taxes <span class="text-xs text-gray-400">(8.875%)</span></span>
+                    <span id="confirmation-taxes">$1.15</span>
+                </div>
+                <div class="flex justify-between items-center font-bold text-lg text-gray-800 pt-2 border-t border-gray-200">
+                    <span>Total</span>
+                    <span id="confirmation-total">$14.14</span>
+                </div>
+            </div>
+         <div class="mt-8 flex flex-col md:flex-row md:justify-between space-y-4 md:space-y-0 md:space-x-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+    <div class="flex-1">
+        <p class="text-sm text-gray-500">Estimated Pickup</p>
+        
+        <p id="order-time-display" class="font-bold text-lg text-red-500">15-25 mins</p>
+    </div>
+    
+    <div class="flex-1">
+        <p class="text-sm text-gray-500">Order Type</p>
+        <div class="flex items-center space-x-2">
+            <span id="confirmation-order-type" class="text-gray-800 font-medium">Pickup</span>
+        </div>
+    </div>
+</div>
+            <div class="mt-8">
+                <button id="checkoutBtn" class="w-full bg-red-500 text-white font-bold py-3 rounded-lg hover:bg-red-600 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50">
+                    Back to Home
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</main>
+<div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+    </div>
+
+
+            <!-- Email confirmation message -->
+            <div class="p-6 md:px-10 md:pt-4 md:pb-10 text-center text-sm text-gray-500">
+                You will receive an email confirmation at <a href="#" class="text-red-500 hover:underline">s24113311@stu.edu.tw</a>. 
+                If you have any questions, please call us at (555) 123-4567.
+            </div>
+        </div>
+    </main>
+
+    <!-- The modal for the button click -->
+    <div id="modal" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg p-6 shadow-xl text-center max-w-sm w-full">
+            <p id="modalTitle" class="text-lg font-semibold mb-4"></p>
+            <p id="modalText" class="text-gray-600 mb-6"></p>
+        </div>
+    </div>
+
+   
+    <!-- Footer -->
+    </div> <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Laoban Footer Logo" />
+                    <h2>Laoban</h2>
+                </div>
+                <p>
+                    Experience authentic Chinese cuisine with handcrafted dumplings and traditional flavors. 
+                    Made fresh daily with the finest ingredients.
+                </p>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone-alt"></i> (555) 123-4567</p>
+                    <p><i class="fas fa-envelope"></i> hello@laoban.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Chinatown Street, New York, NY 10013</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Menu</a></li>
+                    <li><a href="#">Order Online</a></li>
+                    <li><a href="#">Locations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-follow">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <h3>Hours</h3>
+                <div class="hours-list">
+                    <p>Mon – Thu: 11:00 AM – 9:00 PM</p>
+                    <p>Fri – Sat: 11:00 AM – 10:00 PM</p>
+                    <p>Sun: 12:00 PM – 8:00 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Laoban Restaurant. All rights reserved. | Made with care in New York's Chinatown</p>
+        </div>
+    </footer>
+
+    <script src="orderConfirmation.js"></script>
+</body>
+</html>
